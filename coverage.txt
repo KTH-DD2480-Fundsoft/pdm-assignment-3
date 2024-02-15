@@ -1,0 +1,1447 @@
+============================= test session starts ==============================
+platform linux -- Python 3.8.10, pytest-7.4.0, pluggy-1.2.0 -- /home/rasdan/Documents/dd2480/pdm/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/rasdan/Documents/dd2480/pdm
+configfile: pyproject.toml
+plugins: xdist-3.3.1, rerunfailures-12.0, mock-3.11.1, cov-4.1.0, httpserver-1.0.6
+collecting ... collected 832 items
+
+tests/test_formats.py::test_convert_pipfile PASSED                       [  0%]
+tests/test_formats.py::test_convert_requirements_file[True] PASSED       [  0%]
+tests/test_formats.py::test_convert_requirements_file[False] PASSED      [  0%]
+tests/test_formats.py::test_convert_requirements_file_without_name PASSED [  0%]
+tests/test_formats.py::test_convert_poetry PASSED                        [  0%]
+tests/test_formats.py::test_convert_poetry_12 PASSED                     [  0%]
+tests/test_formats.py::test_convert_flit PASSED                          [  0%]
+tests/test_formats.py::test_convert_error_preserve_metadata PASSED       [  0%]
+tests/test_formats.py::test_import_requirements_with_group PASSED        [  1%]
+tests/test_formats.py::test_export_requirements_with_self PASSED         [  1%]
+tests/test_formats.py::test_export_requirements_with_editable_self PASSED [  1%]
+tests/test_formats.py::test_keep_env_vars_in_source PASSED               [  1%]
+tests/test_formats.py::test_expand_env_vars_in_source PASSED             [  1%]
+tests/test_formats.py::test_export_find_links PASSED                     [  1%]
+tests/test_formats.py::test_export_replace_project_root PASSED           [  1%]
+tests/test_formats.py::test_convert_setup_py_project PASSED              [  1%]
+tests/test_installer.py::test_install_wheel_with_inconsistent_dist_info PASSED [  2%]
+tests/test_installer.py::test_install_with_file_existing PASSED          [  2%]
+tests/test_installer.py::test_uninstall_commit_rollback PASSED           [  2%]
+tests/test_installer.py::test_rollback_after_commit PASSED               [  2%]
+tests/test_installer.py::test_uninstall_with_console_scripts[False] PASSED [  2%]
+tests/test_installer.py::test_uninstall_with_console_scripts[True] PASSED [  2%]
+tests/test_installer.py::test_install_wheel_with_cache[symlink] PASSED   [  2%]
+tests/test_installer.py::test_install_wheel_with_cache[hardlink] PASSED  [  2%]
+tests/test_installer.py::test_install_wheel_with_cache[None] PASSED      [  3%]
+tests/test_installer.py::test_url_requirement_is_not_cached PASSED       [  3%]
+tests/test_installer.py::test_install_wheel_with_data_scripts[False] PASSED [  3%]
+tests/test_installer.py::test_install_wheel_with_data_scripts[True] PASSED [  3%]
+tests/test_installer.py::test_compress_file_list_for_rename PASSED       [  3%]
+tests/test_installer.py::test_install_cache_namespace_package[symlink] PASSED [  3%]
+tests/test_installer.py::test_install_cache_namespace_package[hardlink] PASSED [  3%]
+tests/test_installer.py::test_install_cache_symlink_individual PASSED    [  3%]
+tests/test_integration.py::test_basic_integration[3.8] PASSED            [  3%]
+tests/test_integration.py::test_basic_integration[3.10] PASSED           [  4%]
+tests/test_integration.py::test_actual_list_freeze PASSED                [  4%]
+tests/test_plugin.py::test_plugin_new_command PASSED                     [  4%]
+tests/test_plugin.py::test_plugin_replace_command PASSED                 [  4%]
+tests/test_plugin.py::test_load_multiple_plugings PASSED                 [  4%]
+tests/test_plugin.py::test_old_entry_point_compatibility PASSED          [  4%]
+tests/test_plugin.py::test_project_plugin_library PASSED                 [  4%]
+tests/test_project.py::test_project_python_with_pyenv_support PASSED     [  4%]
+tests/test_project.py::test_project_config_items PASSED                  [  5%]
+tests/test_project.py::test_project_config_set_invalid_key PASSED        [  5%]
+tests/test_project.py::test_project_sources_overriding_pypi PASSED       [  5%]
+tests/test_project.py::test_project_sources_env_var_expansion PASSED     [  5%]
+tests/test_project.py::test_global_project PASSED                        [  5%]
+tests/test_project.py::test_auto_global_project PASSED                   [  5%]
+tests/test_project.py::test_project_use_venv PASSED                      [  5%]
+tests/test_project.py::test_project_packages_path PASSED                 [  5%]
+tests/test_project.py::test_project_auto_detect_venv PASSED              [  6%]
+tests/test_project.py::test_ignore_saved_python PASSED                   [  6%]
+tests/test_project.py::test_select_dependencies PASSED                   [  6%]
+tests/test_project.py::test_set_non_exist_python_path PASSED             [  6%]
+tests/test_project.py::test_create_venv_first_time[virtualenv] PASSED    [  6%]
+tests/test_project.py::test_create_venv_first_time[venv] PASSED          [  6%]
+tests/test_project.py::test_create_venv_in_project[virtualenv-True] PASSED [  6%]
+tests/test_project.py::test_create_venv_in_project[virtualenv-False] PASSED [  6%]
+tests/test_project.py::test_create_venv_in_project[venv-True] PASSED     [  6%]
+tests/test_project.py::test_create_venv_in_project[venv-False] PASSED    [  7%]
+tests/test_project.py::test_find_interpreters_from_venv[virtualenv] PASSED [  7%]
+tests/test_project.py::test_find_interpreters_from_venv[venv] PASSED     [  7%]
+tests/test_project.py::test_find_interpreters_without_duplicate_relative_paths PASSED [  7%]
+tests/test_project.py::test_iter_project_venvs PASSED                    [  7%]
+tests/test_project.py::test_load_extra_sources PASSED                    [  7%]
+tests/test_project.py::test_no_index_raise_error PASSED                  [  7%]
+tests/test_project.py::test_access_index_with_auth PASSED                [  7%]
+tests/test_project.py::test_configured_source_overwriting PASSED         [  8%]
+tests/test_project.py::test_invoke_pdm_adding_configured_args PASSED     [  8%]
+tests/test_project.py::test_quiet_mode[True-extra_args0] PASSED          [  8%]
+tests/test_project.py::test_quiet_mode[False-extra_args1] PASSED         [  8%]
+tests/test_project.py::test_ignore_package_warning[foo-True] PASSED      [  8%]
+tests/test_project.py::test_ignore_package_warning[bar-False] PASSED     [  8%]
+tests/test_project.py::test_ignore_package_warning[*-True] PASSED        [  8%]
+tests/test_project.py::test_ignore_package_warning[f?o-True] PASSED      [  8%]
+tests/test_project.py::test_filter_sources_with_config PASSED            [  9%]
+tests/test_signals.py::test_post_init_signal PASSED                      [  9%]
+tests/test_signals.py::test_post_lock_and_install_signals PASSED         [  9%]
+tests/test_utils.py::test_create_tracked_tempdir[given0-test_dirname1] PASSED [  9%]
+tests/test_utils.py::test_create_tracked_tempdir[given1-test_dirname2] PASSED [  9%]
+tests/test_utils.py::test_create_tracked_tempdir[given2-test_dirname3] PASSED [  9%]
+tests/test_utils.py::test_create_tracked_tempdir[given3-test_dirname4] PASSED [  9%]
+tests/test_utils.py::test_create_tracked_tempdir[given4-test_dirname5] PASSED [  9%]
+tests/test_utils.py::test_create_tracked_tempdir[given5-test_dirname6] PASSED [  9%]
+tests/test_utils.py::test_create_tracked_tempdir[given6-test_dirname7] PASSED [ 10%]
+tests/test_utils.py::test_create_tracked_tempdir[given7-test_dirname8] PASSED [ 10%]
+tests/test_utils.py::test_create_tracked_tempdir[given8-test_dirname9] PASSED [ 10%]
+tests/test_utils.py::test_get_trusted_hosts[repository_configs0] PASSED  [ 10%]
+tests/test_utils.py::test_url_without_fragments[scheme://netloc-scheme://netloc] PASSED [ 10%]
+tests/test_utils.py::test_url_without_fragments[scheme://netloc/path-scheme://netloc/path] PASSED [ 10%]
+tests/test_utils.py::test_url_without_fragments[scheme://netloc/path/#-scheme://netloc/path/] PASSED [ 10%]
+tests/test_utils.py::test_url_without_fragments[scheme://netloc/path#fragment-scheme://netloc/path] PASSED [ 10%]
+tests/test_utils.py::test_url_without_fragments[scheme://netloc/path;parameters?query#fragment-scheme://netloc/path;parameters?query] PASSED [ 11%]
+tests/test_utils.py::test_join_list_with[given0-expected0] PASSED        [ 11%]
+tests/test_utils.py::test_join_list_with[given1-expected1] PASSED        [ 11%]
+tests/test_utils.py::test_join_list_with[given2-expected2] PASSED        [ 11%]
+tests/test_utils.py::TestGetUserEmailFromGit::test_no_git PASSED         [ 11%]
+tests/test_utils.py::TestGetUserEmailFromGit::test_no_git_username_and_email PASSED [ 11%]
+tests/test_utils.py::TestGetUserEmailFromGit::test_no_git_email PASSED   [ 11%]
+tests/test_utils.py::TestGetUserEmailFromGit::test_no_git_username PASSED [ 11%]
+tests/test_utils.py::TestGetUserEmailFromGit::test_git_username_and_email PASSED [ 12%]
+tests/test_utils.py::test_add_ssh_scheme_to_git_uri[git@github.com/pdm-project/pdm-ssh://git@github.com/pdm-project/pdm] PASSED [ 12%]
+tests/test_utils.py::test_add_ssh_scheme_to_git_uri[ssh://git@github.com/pdm-project/pdm-ssh://git@github.com/pdm-project/pdm] PASSED [ 12%]
+tests/test_utils.py::test_add_ssh_scheme_to_git_uri[git+ssh://git@github.com/pdm-project/pdm-git+ssh://git@github.com/pdm-project/pdm] PASSED [ 12%]
+tests/test_utils.py::test_add_ssh_scheme_to_git_uri[https://git@github.com/pdm-project/pdm-https://git@github.com/pdm-project/pdm] PASSED [ 12%]
+tests/test_utils.py::test_add_ssh_scheme_to_git_uri[file:///my/local/pdm-project/pdm-file:///my/local/pdm-project/pdm] PASSED [ 12%]
+tests/test_utils.py::TestUrlToPath::test_non_file_url PASSED             [ 12%]
+tests/test_utils.py::TestUrlToPath::test_non_windows_non_local_file_url PASSED [ 12%]
+tests/test_utils.py::TestUrlToPath::test_non_windows_localhost_local_file_url PASSED [ 12%]
+tests/test_utils.py::TestUrlToPath::test_windows_localhost_local_file_url SKIPPED [ 13%]
+tests/test_utils.py::test_path_to_url[/path/to/my/pdm-file:///path/to/my/pdm] PASSED [ 13%]
+tests/test_utils.py::test_path_to_url[/abs/path/to/my/pdm-file:///abs/path/to/my/pdm] PASSED [ 13%]
+tests/test_utils.py::test_path_to_url[/path/to/my/pdm/pyproject.toml-file:///path/to/my/pdm/pyproject.toml] PASSED [ 13%]
+tests/test_utils.py::test_path_to_url[../path/to/my/pdm/pyproject.toml-file:///abs/path/to/my/pdm/pyproject.toml] PASSED [ 13%]
+tests/test_utils.py::test_expand_env_vars[test-test] PASSED              [ 13%]
+tests/test_utils.py::test_expand_env_vars[-] PASSED                      [ 13%]
+tests/test_utils.py::test_expand_env_vars[${FOO}-hello] PASSED           [ 13%]
+tests/test_utils.py::test_expand_env_vars[$FOO-$FOO] PASSED              [ 14%]
+tests/test_utils.py::test_expand_env_vars[${BAR}-${BAR}] PASSED          [ 14%]
+tests/test_utils.py::test_expand_env_vars[%FOO%-%FOO%] PASSED            [ 14%]
+tests/test_utils.py::test_expand_env_vars[${FOO}_${FOO}-hello_hello] PASSED [ 14%]
+tests/test_utils.py::test_expand_env_vars_in_auth[https://example.org/path?arg=1-https://example.org/path?arg=1] PASSED [ 14%]
+tests/test_utils.py::test_expand_env_vars_in_auth[https://${FOO}@example.org/path?arg=1-https://hello@example.org/path?arg=1] PASSED [ 14%]
+tests/test_utils.py::test_expand_env_vars_in_auth[https://${FOO}:${BAR}@example.org/path?arg=1-https://hello:wo%3Arld@example.org/path?arg=1] PASSED [ 14%]
+tests/test_utils.py::test_expand_env_vars_in_auth[https://${FOOBAR}@example.org/path?arg=1-https://%24%7BFOOBAR%7D@example.org/path?arg=1] PASSED [ 14%]
+tests/test_utils.py::test_path_replace[posix-given0-/a/b/repl/c/repl/d/e] PASSED [ 15%]
+tests/test_utils.py::test_path_replace[posix-given1-/path/to/new/pdm] PASSED [ 15%]
+tests/test_utils.py::test_path_replace[posix-given2-repl/a/math/b/repl/c] PASSED [ 15%]
+tests/test_utils.py::test_path_replace[posix-given3-/some/path] PASSED   [ 15%]
+tests/test_utils.py::test_path_replace[posix-given4-] PASSED             [ 15%]
+tests/test_utils.py::test_path_replace[nt-given5-C:/Path/tO/new/pdm] PASSED [ 15%]
+tests/test_utils.py::test_path_replace[nt-given6-C:/Path/tO/new/pdm] PASSED [ 15%]
+tests/test_utils.py::test_path_replace[nt-given7-C:/no/matching/path] PASSED [ 15%]
+tests/test_utils.py::test_is_path_relative_to[given0-True] PASSED        [ 15%]
+tests/test_utils.py::test_is_path_relative_to[given1-True] PASSED        [ 16%]
+tests/test_utils.py::test_is_path_relative_to[given2-True] PASSED        [ 16%]
+tests/test_utils.py::test_is_path_relative_to[given3-False] PASSED       [ 16%]
+tests/test_utils.py::test_is_path_relative_to[given4-False] PASSED       [ 16%]
+tests/test_utils.py::test_is_path_relative_to[given5-False] PASSED       [ 16%]
+tests/test_utils.py::test_is_path_relative_to[given6-True] PASSED        [ 16%]
+tests/test_utils.py::test_is_path_relative_to[given7-True] PASSED        [ 16%]
+tests/test_utils.py::TestGetVenvLikePrefix::test_conda_env_with_conda_meta_in_bin[py312_compatible_paths0] PASSED [ 16%]
+tests/test_utils.py::TestGetVenvLikePrefix::test_py_env_with_pyvenv_cfg[py312_compatible_paths0] PASSED [ 17%]
+tests/test_utils.py::TestGetVenvLikePrefix::test_conda_env_with_conda_meta[py312_compatible_paths0] PASSED [ 17%]
+tests/test_utils.py::TestGetVenvLikePrefix::test_virtual_env PASSED      [ 17%]
+tests/test_utils.py::TestGetVenvLikePrefix::test_conda_virtual_env PASSED [ 17%]
+tests/test_utils.py::TestGetVenvLikePrefix::test_no_virtual_env PASSED   [ 17%]
+tests/test_utils.py::test_find_python_in_path PASSED                     [ 17%]
+tests/test_utils.py::test_get_rev_from_url[scheme://netloc/path@rev#fragment-rev] PASSED [ 17%]
+tests/test_utils.py::test_get_rev_from_url[scheme://netloc/path@rev-rev] PASSED [ 17%]
+tests/test_utils.py::test_get_rev_from_url[scheme://netloc/path-] PASSED [ 18%]
+tests/test_utils.py::test_get_rev_from_url[scheme://netloc/path#fragment-] PASSED [ 18%]
+tests/test_utils.py::test_normalize_name[given0-ProjectName] PASSED      [ 18%]
+tests/test_utils.py::test_normalize_name[given1-projectname] PASSED      [ 18%]
+tests/test_utils.py::test_normalize_name[given2-1Project-Name] PASSED    [ 18%]
+tests/test_utils.py::test_normalize_name[given3-1project-name] PASSED    [ 18%]
+tests/test_utils.py::test_normalize_name[given4-Project-Name] PASSED     [ 18%]
+tests/test_utils.py::test_normalize_name[given5-project-name] PASSED     [ 18%]
+tests/test_utils.py::test_normalize_name[given6-Project123Name] PASSED   [ 18%]
+tests/test_utils.py::test_normalize_name[given7-project123name] PASSED   [ 19%]
+tests/test_utils.py::test_normalize_name[given8-123-ProjectName] PASSED  [ 19%]
+tests/test_utils.py::test_normalize_name[given9-123-projectname] PASSED  [ 19%]
+tests/test_utils.py::test_normalize_name[given10-123-Project-Name] PASSED [ 19%]
+tests/test_utils.py::test_normalize_name[given11-123-project-name] PASSED [ 19%]
+tests/test_utils.py::test_normalize_name[given12--123Project-Name4] PASSED [ 19%]
+tests/test_utils.py::test_normalize_name[given13--123project-name4] PASSED [ 19%]
+tests/test_utils.py::TestIsEditable::test_is_egg_link PASSED             [ 19%]
+tests/test_utils.py::TestIsEditable::test_not_direct_url_distribution PASSED [ 20%]
+tests/test_utils.py::TestIsEditable::test_direct_url_distribution PASSED [ 20%]
+tests/test_utils.py::test_merge_dictionary PASSED                        [ 20%]
+tests/test_utils.py::test_dependency_group_selection[args0-golden0] PASSED [ 20%]
+tests/test_utils.py::test_dependency_group_selection[args1-golden1] PASSED [ 20%]
+tests/test_utils.py::test_dependency_group_selection[args2-golden2] PASSED [ 20%]
+tests/test_utils.py::test_dependency_group_selection[args3-golden3] PASSED [ 20%]
+tests/test_utils.py::test_dependency_group_selection[args4-golden4] PASSED [ 20%]
+tests/test_utils.py::test_dependency_group_selection[args5-golden5] PASSED [ 21%]
+tests/test_utils.py::test_dependency_group_selection[args6-golden6] PASSED [ 21%]
+tests/test_utils.py::test_dependency_group_selection[args7-golden7] PASSED [ 21%]
+tests/test_utils.py::test_prod_should_not_be_with_dev PASSED             [ 21%]
+tests/test_utils.py::test_deprecation_warning PASSED                     [ 21%]
+tests/test_utils.py::test_comparable_version PASSED                      [ 21%]
+tests/test_utils.py::test_validate_project_name[foO] PASSED              [ 21%]
+tests/test_utils.py::test_validate_project_name[f] PASSED                [ 21%]
+tests/test_utils.py::test_validate_project_name[3d] PASSED               [ 21%]
+tests/test_utils.py::test_validate_project_name[f3] PASSED               [ 22%]
+tests/test_utils.py::test_validate_project_name[333] PASSED              [ 22%]
+tests/test_utils.py::test_validate_project_name[foo.bar] PASSED          [ 22%]
+tests/test_utils.py::test_validate_project_name[foo-bar] PASSED          [ 22%]
+tests/test_utils.py::test_validate_project_name[foo_bar] PASSED          [ 22%]
+tests/test_utils.py::test_validate_project_name[foo-_.bar] PASSED        [ 22%]
+tests/test_utils.py::test_invalidate_project_name[] PASSED               [ 22%]
+tests/test_utils.py::test_invalidate_project_name[-] PASSED              [ 22%]
+tests/test_utils.py::test_invalidate_project_name[.foo] PASSED           [ 23%]
+tests/test_utils.py::test_invalidate_project_name[foo_] PASSED           [ 23%]
+tests/test_utils.py::test_invalidate_project_name[-3] PASSED             [ 23%]
+tests/test_utils.py::test_invalidate_project_name[foo$bar] PASSED        [ 23%]
+tests/test_utils.py::test_invalidate_project_name[a.3-] PASSED           [ 23%]
+tests/test_utils.py::test_sanitize_project_name[foo-foo] PASSED          [ 23%]
+tests/test_utils.py::test_sanitize_project_name[Foo.Bar-Foo.Bar] PASSED  [ 23%]
+tests/test_utils.py::test_sanitize_project_name[-foo-foo] PASSED         [ 23%]
+tests/test_utils.py::test_sanitize_project_name[Foo%$Bar-Foo-Bar] PASSED [ 24%]
+tests/test_utils.py::test_sanitize_project_name[Foo$-Foo] PASSED         [ 24%]
+tests/cli/test_add.py::test_add_package[False] PASSED                    [ 24%]
+tests/cli/test_add.py::test_add_package[True] PASSED                     [ 24%]
+tests/cli/test_add.py::test_add_package_no_lock[False] PASSED            [ 24%]
+tests/cli/test_add.py::test_add_package_no_lock[True] PASSED             [ 24%]
+tests/cli/test_add.py::test_add_command PASSED                           [ 24%]
+tests/cli/test_add.py::test_add_package_to_custom_group PASSED           [ 24%]
+tests/cli/test_add.py::test_add_package_to_custom_dev_group PASSED       [ 25%]
+tests/cli/test_add.py::test_add_editable_package PASSED                  [ 25%]
+tests/cli/test_add.py::test_add_editable_package_to_metadata_forbidden PASSED [ 25%]
+tests/cli/test_add.py::test_non_editable_override_editable PASSED        [ 25%]
+tests/cli/test_add.py::test_add_remote_package_url[False] PASSED         [ 25%]
+tests/cli/test_add.py::test_add_remote_package_url[True] PASSED          [ 25%]
+tests/cli/test_add.py::test_add_no_install PASSED                        [ 25%]
+tests/cli/test_add.py::test_add_package_save_exact PASSED                [ 25%]
+tests/cli/test_add.py::test_add_package_save_wildcard PASSED             [ 25%]
+tests/cli/test_add.py::test_add_package_save_minimum PASSED              [ 26%]
+tests/cli/test_add.py::test_add_package_update_reuse PASSED              [ 26%]
+tests/cli/test_add.py::test_add_package_update_eager PASSED              [ 26%]
+tests/cli/test_add.py::test_add_package_with_mismatch_marker PASSED      [ 26%]
+tests/cli/test_add.py::test_add_dependency_from_multiple_parents PASSED  [ 26%]
+tests/cli/test_add.py::test_add_packages_without_self PASSED             [ 26%]
+tests/cli/test_add.py::test_add_package_unconstrained_rewrite_specifier PASSED [ 26%]
+tests/cli/test_add.py::test_add_cached_vcs_requirement PASSED            [ 26%]
+tests/cli/test_add.py::test_add_with_dry_run PASSED                      [ 27%]
+tests/cli/test_add.py::test_add_with_prerelease PASSED                   [ 27%]
+tests/cli/test_add.py::test_add_editable_package_with_extras PASSED      [ 27%]
+tests/cli/test_add.py::test_add_package_with_local_version PASSED        [ 27%]
+tests/cli/test_add.py::test_add_group_to_lockfile PASSED                 [ 27%]
+tests/cli/test_add.py::test_add_group_to_lockfile_without_package PASSED [ 27%]
+tests/cli/test_add.py::test_add_update_reuse_installed PASSED            [ 27%]
+tests/cli/test_add.py::test_add_update_reuse_installed_config PASSED     [ 27%]
+tests/cli/test_build.py::test_build_command PASSED                       [ 28%]
+tests/cli/test_build.py::test_build_global_project_forbidden PASSED      [ 28%]
+tests/cli/test_build.py::test_build_single_module PASSED                 [ 28%]
+tests/cli/test_build.py::test_build_single_module_with_readme PASSED     [ 28%]
+tests/cli/test_build.py::test_build_package PASSED                       [ 28%]
+tests/cli/test_build.py::test_build_src_package PASSED                   [ 28%]
+tests/cli/test_build.py::test_build_package_include PASSED               [ 28%]
+tests/cli/test_build.py::test_build_src_package_by_include PASSED        [ 28%]
+tests/cli/test_build.py::test_build_with_config_settings PASSED          [ 28%]
+tests/cli/test_build.py::test_cli_build_with_config_settings PASSED      [ 29%]
+tests/cli/test_build.py::test_build_with_no_isolation[True] PASSED       [ 29%]
+tests/cli/test_build.py::test_build_with_no_isolation[False] FAILED      [ 29%]
+tests/cli/test_build.py::test_build_ignoring_pip_environment PASSED      [ 29%]
+tests/cli/test_cache.py::test_cache_list PASSED                          [ 29%]
+tests/cli/test_cache.py::test_cache_list_pattern PASSED                  [ 29%]
+tests/cli/test_cache.py::test_cache_remove_pattern PASSED                [ 29%]
+tests/cli/test_cache.py::test_cache_remove_wildcard PASSED               [ 29%]
+tests/cli/test_cache.py::test_cache_clear PASSED                         [ 30%]
+tests/cli/test_cache.py::test_cache_remove_no_pattern PASSED             [ 30%]
+tests/cli/test_cache.py::test_cache_info PASSED                          [ 30%]
+tests/cli/test_cache.py::test_hash_cache[http://fixtures.test/artifacts/demo-0.0.1.tar.gz-sha256:d57bf5e3b8723e4fc68275159dcc4ca983d86d4c84220a4d715d491401f27db2] PASSED [ 30%]
+tests/cli/test_cache.py::test_hash_cache[file:///home/rasdan/Documents/dd2480/pdm/tests/fixtures/artifacts/demo-0.0.1.tar.gz-sha256:d57bf5e3b8723e4fc68275159dcc4ca983d86d4c84220a4d715d491401f27db2] PASSED [ 30%]
+tests/cli/test_cache.py::test_hash_cache[http://fixtures.test/artifacts/demo-0.0.1.tar.gz#sha384=9130e5e4912bc78b1ffabbf406d56bc74b9165b0adc8c627168b7b563b80d5ff6c30e269398d01144ee52aa33292682d-sha384:9130e5e4912bc78b1ffabbf406d56bc74b9165b0adc8c627168b7b563b80d5ff6c30e269398d01144ee52aa33292682d] PASSED [ 30%]
+tests/cli/test_cache.py::test_hash_cache[http://fixtures.test/artifacts/demo-0.0.1.tar.gz#md5=5218509812c9fcb4646adde8fd3307e1-sha256:d57bf5e3b8723e4fc68275159dcc4ca983d86d4c84220a4d715d491401f27db2] PASSED [ 30%]
+tests/cli/test_cache.py::test_clear_package_cache PASSED                 [ 30%]
+tests/cli/test_config.py::test_config_command PASSED                     [ 31%]
+tests/cli/test_config.py::test_config_get_command PASSED                 [ 31%]
+tests/cli/test_config.py::test_config_set_command PASSED                 [ 31%]
+tests/cli/test_config.py::test_config_del_command PASSED                 [ 31%]
+tests/cli/test_config.py::test_config_env_var_shadowing PASSED           [ 31%]
+tests/cli/test_config.py::test_config_project_global_precedence PASSED   [ 31%]
+tests/cli/test_config.py::test_specify_config_file PASSED                [ 31%]
+tests/cli/test_config.py::test_default_repository_setting FAILED         [ 31%]
+tests/cli/test_config.py::test_repository_config_not_available_on_project PASSED [ 31%]
+tests/cli/test_config.py::test_repository_config_key_short PASSED        [ 32%]
+tests/cli/test_config.py::test_repository_overwrite_default PASSED       [ 32%]
+tests/cli/test_config.py::test_hide_password_in_output_repository FAILED [ 32%]
+tests/cli/test_config.py::test_hide_password_in_output_pypi PASSED       [ 32%]
+tests/cli/test_config.py::test_config_get_repository FAILED              [ 32%]
+tests/cli/test_config.py::test_config_set_repository PASSED              [ 32%]
+tests/cli/test_config.py::test_config_del_repository PASSED              [ 32%]
+tests/cli/test_config.py::test_config_password_save_into_keyring PASSED  [ 32%]
+tests/cli/test_config.py::test_keyring_operation_error_disables_itself PASSED [ 33%]
+tests/cli/test_fix.py::test_fix_non_existing_problem PASSED              [ 33%]
+tests/cli/test_fix.py::test_fix_individual_problem PASSED                [ 33%]
+tests/cli/test_fix.py::test_show_fix_command PASSED                      [ 33%]
+tests/cli/test_fix.py::test_show_fix_command_global_project PASSED       [ 33%]
+tests/cli/test_fix.py::test_fix_project_config PASSED                    [ 33%]
+tests/cli/test_hooks.py::test_pre_script_fail_fast PASSED                [ 33%]
+tests/cli/test_hooks.py::test_pre_and_post_scripts PASSED                [ 33%]
+tests/cli/test_hooks.py::test_composite_runs_all_hooks PASSED            [ 34%]
+tests/cli/test_hooks.py::test_skip_all_hooks_option[:all] PASSED         [ 34%]
+tests/cli/test_hooks.py::test_skip_all_hooks_option[:pre,:post] PASSED   [ 34%]
+tests/cli/test_hooks.py::test_skip_option[--skip pre_test,post_first,second] PASSED [ 34%]
+tests/cli/test_hooks.py::test_skip_option[-k pre_test,post_first,second] PASSED [ 34%]
+tests/cli/test_hooks.py::test_skip_option[--skip pre_test --skip post_first --skip second] PASSED [ 34%]
+tests/cli/test_hooks.py::test_skip_option[-k pre_test -k post_first -k second] PASSED [ 34%]
+tests/cli/test_hooks.py::test_skip_option[--skip pre_test --skip post_first,second] PASSED [ 34%]
+tests/cli/test_hooks.py::test_skip_option[-k pre_test -k post_first,second] PASSED [ 34%]
+tests/cli/test_hooks.py::test_skip_option_default_from_env[pre_test-expected0] PASSED [ 35%]
+tests/cli/test_hooks.py::test_skip_option_default_from_env[pre_test,post_test-expected1] PASSED [ 35%]
+tests/cli/test_hooks.py::test_skip_option_default_from_env[pre_test , post_test-expected2] PASSED [ 35%]
+tests/cli/test_hooks.py::test_skip_option_default_from_env[None-None] PASSED [ 35%]
+tests/cli/test_hooks.py::test_skip_option_default_from_env[ -None] PASSED [ 35%]
+tests/cli/test_hooks.py::test_skip_option_default_from_env[ , -None] PASSED [ 35%]
+tests/cli/test_hooks.py::test_hooks[add] PASSED                          [ 35%]
+tests/cli/test_hooks.py::test_hooks[build] PASSED                        [ 35%]
+tests/cli/test_hooks.py::test_hooks[init] PASSED                         [ 36%]
+tests/cli/test_hooks.py::test_hooks[install] PASSED                      [ 36%]
+tests/cli/test_hooks.py::test_hooks[lock] PASSED                         [ 36%]
+tests/cli/test_hooks.py::test_hooks[publish] PASSED                      [ 36%]
+tests/cli/test_hooks.py::test_hooks[remove] PASSED                       [ 36%]
+tests/cli/test_hooks.py::test_hooks[sync] PASSED                         [ 36%]
+tests/cli/test_hooks.py::test_hooks[update] PASSED                       [ 36%]
+tests/cli/test_hooks.py::test_hooks[use] PASSED                          [ 36%]
+tests/cli/test_hooks.py::test_skip_option_from_signal[add-pre_lock] PASSED [ 37%]
+tests/cli/test_hooks.py::test_skip_option_from_signal[add-post_lock] PASSED [ 37%]
+tests/cli/test_hooks.py::test_skip_option_from_signal[build-pre_build] PASSED [ 37%]
+tests/cli/test_hooks.py::test_skip_option_from_signal[build-post_build] PASSED [ 37%]
+tests/cli/test_hooks.py::test_skip_option_from_signal[init-post_init] PASSED [ 37%]
+tests/cli/test_hooks.py::test_skip_option_from_signal[install-pre_install] PASSED [ 37%]
+tests/cli/test_hooks.py::test_skip_option_from_signal[install-post_install] PASSED [ 37%]
+tests/cli/test_hooks.py::test_skip_option_from_signal[install-pre_lock] PASSED [ 37%]
+tests/cli/test_hooks.py::test_skip_option_from_signal[install-post_lock] PASSED [ 37%]
+tests/cli/test_hooks.py::test_skip_option_from_signal[lock-pre_lock] PASSED [ 38%]
+tests/cli/test_hooks.py::test_skip_option_from_signal[lock-post_lock] PASSED [ 38%]
+tests/cli/test_hooks.py::test_skip_option_from_signal[publish-pre_publish] PASSED [ 38%]
+tests/cli/test_hooks.py::test_skip_option_from_signal[publish-pre_build] PASSED [ 38%]
+tests/cli/test_hooks.py::test_skip_option_from_signal[publish-post_build] PASSED [ 38%]
+tests/cli/test_hooks.py::test_skip_option_from_signal[publish-post_publish] PASSED [ 38%]
+tests/cli/test_hooks.py::test_skip_option_from_signal[remove-pre_lock] PASSED [ 38%]
+tests/cli/test_hooks.py::test_skip_option_from_signal[remove-post_lock] PASSED [ 38%]
+tests/cli/test_hooks.py::test_skip_option_from_signal[sync-pre_install] PASSED [ 39%]
+tests/cli/test_hooks.py::test_skip_option_from_signal[sync-post_install] PASSED [ 39%]
+tests/cli/test_hooks.py::test_skip_option_from_signal[update-pre_install] PASSED [ 39%]
+tests/cli/test_hooks.py::test_skip_option_from_signal[update-post_install] PASSED [ 39%]
+tests/cli/test_hooks.py::test_skip_option_from_signal[update-pre_lock] PASSED [ 39%]
+tests/cli/test_hooks.py::test_skip_option_from_signal[update-post_lock] PASSED [ 39%]
+tests/cli/test_hooks.py::test_skip_option_from_signal[use-post_use] PASSED [ 39%]
+tests/cli/test_hooks.py::test_skip_all_option_from_signal[:all-add] PASSED [ 39%]
+tests/cli/test_hooks.py::test_skip_all_option_from_signal[:all-build] PASSED [ 40%]
+tests/cli/test_hooks.py::test_skip_all_option_from_signal[:all-init] PASSED [ 40%]
+tests/cli/test_hooks.py::test_skip_all_option_from_signal[:all-install] PASSED [ 40%]
+tests/cli/test_hooks.py::test_skip_all_option_from_signal[:all-lock] PASSED [ 40%]
+tests/cli/test_hooks.py::test_skip_all_option_from_signal[:all-publish] PASSED [ 40%]
+tests/cli/test_hooks.py::test_skip_all_option_from_signal[:all-remove] PASSED [ 40%]
+tests/cli/test_hooks.py::test_skip_all_option_from_signal[:all-sync] PASSED [ 40%]
+tests/cli/test_hooks.py::test_skip_all_option_from_signal[:all-update] PASSED [ 40%]
+tests/cli/test_hooks.py::test_skip_all_option_from_signal[:all-use] PASSED [ 40%]
+tests/cli/test_hooks.py::test_skip_all_option_from_signal[:pre,:post-add] PASSED [ 41%]
+tests/cli/test_hooks.py::test_skip_all_option_from_signal[:pre,:post-build] PASSED [ 41%]
+tests/cli/test_hooks.py::test_skip_all_option_from_signal[:pre,:post-init] PASSED [ 41%]
+tests/cli/test_hooks.py::test_skip_all_option_from_signal[:pre,:post-install] PASSED [ 41%]
+tests/cli/test_hooks.py::test_skip_all_option_from_signal[:pre,:post-lock] PASSED [ 41%]
+tests/cli/test_hooks.py::test_skip_all_option_from_signal[:pre,:post-publish] PASSED [ 41%]
+tests/cli/test_hooks.py::test_skip_all_option_from_signal[:pre,:post-remove] PASSED [ 41%]
+tests/cli/test_hooks.py::test_skip_all_option_from_signal[:pre,:post-sync] PASSED [ 41%]
+tests/cli/test_hooks.py::test_skip_all_option_from_signal[:pre,:post-update] PASSED [ 42%]
+tests/cli/test_hooks.py::test_skip_all_option_from_signal[:pre,:post-use] PASSED [ 42%]
+tests/cli/test_hooks.py::test_skip_pre_post_option_from_signal[pre-add] PASSED [ 42%]
+tests/cli/test_hooks.py::test_skip_pre_post_option_from_signal[pre-build] PASSED [ 42%]
+tests/cli/test_hooks.py::test_skip_pre_post_option_from_signal[pre-init] PASSED [ 42%]
+tests/cli/test_hooks.py::test_skip_pre_post_option_from_signal[pre-install] PASSED [ 42%]
+tests/cli/test_hooks.py::test_skip_pre_post_option_from_signal[pre-lock] PASSED [ 42%]
+tests/cli/test_hooks.py::test_skip_pre_post_option_from_signal[pre-publish] PASSED [ 42%]
+tests/cli/test_hooks.py::test_skip_pre_post_option_from_signal[pre-remove] PASSED [ 43%]
+tests/cli/test_hooks.py::test_skip_pre_post_option_from_signal[pre-sync] PASSED [ 43%]
+tests/cli/test_hooks.py::test_skip_pre_post_option_from_signal[pre-update] PASSED [ 43%]
+tests/cli/test_hooks.py::test_skip_pre_post_option_from_signal[pre-use] PASSED [ 43%]
+tests/cli/test_hooks.py::test_skip_pre_post_option_from_signal[post-add] PASSED [ 43%]
+tests/cli/test_hooks.py::test_skip_pre_post_option_from_signal[post-build] PASSED [ 43%]
+tests/cli/test_hooks.py::test_skip_pre_post_option_from_signal[post-init] PASSED [ 43%]
+tests/cli/test_hooks.py::test_skip_pre_post_option_from_signal[post-install] PASSED [ 43%]
+tests/cli/test_hooks.py::test_skip_pre_post_option_from_signal[post-lock] PASSED [ 43%]
+tests/cli/test_hooks.py::test_skip_pre_post_option_from_signal[post-publish] PASSED [ 44%]
+tests/cli/test_hooks.py::test_skip_pre_post_option_from_signal[post-remove] PASSED [ 44%]
+tests/cli/test_hooks.py::test_skip_pre_post_option_from_signal[post-sync] PASSED [ 44%]
+tests/cli/test_hooks.py::test_skip_pre_post_option_from_signal[post-update] PASSED [ 44%]
+tests/cli/test_hooks.py::test_skip_pre_post_option_from_signal[post-use] PASSED [ 44%]
+tests/cli/test_init.py::test_init_validate_python_requires PASSED        [ 44%]
+tests/cli/test_init.py::test_init_command PASSED                         [ 44%]
+tests/cli/test_init.py::test_init_command_library PASSED                 [ 44%]
+tests/cli/test_init.py::test_init_non_interactive PASSED                 [ 45%]
+tests/cli/test_init.py::test_init_auto_create_venv PASSED                [ 45%]
+tests/cli/test_init.py::test_init_auto_create_venv_specify_python PASSED [ 45%]
+tests/cli/test_init.py::test_init_auto_create_venv_answer_no PASSED      [ 45%]
+tests/cli/test_init.py::test_init_with_backend_default_library PASSED    [ 45%]
+tests/cli/test_init.py::test_init_with_backend_default_library_non_interactive PASSED [ 45%]
+tests/cli/test_install.py::test_sync_packages_with_group_all PASSED      [ 45%]
+tests/cli/test_install.py::test_sync_packages_with_all_dev PASSED        [ 45%]
+tests/cli/test_install.py::test_sync_no_lockfile PASSED                  [ 46%]
+tests/cli/test_install.py::test_sync_clean_packages PASSED               [ 46%]
+tests/cli/test_install.py::test_sync_dry_run PASSED                      [ 46%]
+tests/cli/test_install.py::test_sync_only_different PASSED               [ 46%]
+tests/cli/test_install.py::test_sync_in_sequential_mode PASSED           [ 46%]
+tests/cli/test_install.py::test_sync_packages_with_groups PASSED         [ 46%]
+tests/cli/test_install.py::test_sync_production_packages[prod_option0] PASSED [ 46%]
+tests/cli/test_install.py::test_sync_production_packages[prod_option1] PASSED [ 46%]
+tests/cli/test_install.py::test_sync_without_self PASSED                 [ 46%]
+tests/cli/test_install.py::test_sync_with_index_change PASSED            [ 47%]
+tests/cli/test_install.py::test_install_command PASSED                   [ 47%]
+tests/cli/test_install.py::test_sync_command PASSED                      [ 47%]
+tests/cli/test_install.py::test_install_with_lockfile PASSED             [ 47%]
+tests/cli/test_install.py::test_install_with_dry_run PASSED              [ 47%]
+tests/cli/test_install.py::test_install_frozen_lockfile PASSED           [ 47%]
+tests/cli/test_install.py::test_install_no_lock_deprecated PASSED        [ 47%]
+tests/cli/test_install.py::test_install_check PASSED                     [ 47%]
+tests/cli/test_install.py::test_sync_with_only_keep_option PASSED        [ 48%]
+tests/cli/test_install.py::test_install_referencing_self_package PASSED  [ 48%]
+tests/cli/test_install.py::test_install_monorepo_with_rel_paths PASSED   [ 48%]
+tests/cli/test_install.py::test_install_retry PASSED                     [ 48%]
+tests/cli/test_install.py::test_install_fail_fast PASSED                 [ 48%]
+tests/cli/test_install.py::test_install_groups_not_in_lockfile PASSED    [ 48%]
+tests/cli/test_install.py::test_install_locked_groups PASSED             [ 48%]
+tests/cli/test_install.py::test_install_groups_and_lock PASSED           [ 48%]
+tests/cli/test_install.py::test_install_requirement_with_extras PASSED   [ 49%]
+tests/cli/test_install.py::test_fix_package_type_and_update PASSED       [ 49%]
+tests/cli/test_list.py::test_list_command PASSED                         [ 49%]
+tests/cli/test_list.py::test_list_graph_command PASSED                   [ 49%]
+tests/cli/test_list.py::test_list_dependency_graph PASSED                [ 49%]
+tests/cli/test_list.py::test_list_dependency_graph_include_exclude PASSED [ 49%]
+tests/cli/test_list.py::test_list_dependency_graph_with_circular_forward PASSED [ 49%]
+tests/cli/test_list.py::test_list_dependency_graph_with_circular_reverse PASSED [ 49%]
+tests/cli/test_list.py::test_list_reverse_without_graph_flag PASSED      [ 50%]
+tests/cli/test_list.py::test_list_reverse_dependency_graph PASSED        [ 50%]
+tests/cli/test_list.py::test_list_json PASSED                            [ 50%]
+tests/cli/test_list.py::test_list_json_with_pattern PASSED               [ 50%]
+tests/cli/test_list.py::test_list_json_reverse PASSED                    [ 50%]
+tests/cli/test_list.py::test_list_reverse_json_with_pattern PASSED       [ 50%]
+tests/cli/test_list.py::test_list_json_with_circular_forward PASSED      [ 50%]
+tests/cli/test_list.py::test_list_json_with_circular_reverse PASSED      [ 50%]
+tests/cli/test_list.py::test_list_field_unknown PASSED                   [ 50%]
+tests/cli/test_list.py::test_list_sort_unknown PASSED                    [ 51%]
+tests/cli/test_list.py::test_list_freeze_banned_options PASSED           [ 51%]
+tests/cli/test_list.py::test_list_multiple_export_formats PASSED         [ 51%]
+tests/cli/test_list.py::test_list_bare PASSED                            [ 51%]
+tests/cli/test_list.py::test_list_bare_sorted_name PASSED                [ 51%]
+tests/cli/test_list.py::test_list_with_pattern PASSED                    [ 51%]
+tests/cli/test_list.py::test_list_freeze PASSED                          [ 51%]
+tests/cli/test_list.py::test_list_bare_sorted_version PASSED             [ 51%]
+tests/cli/test_list.py::test_list_bare_sorted_version_resolve PASSED     [ 52%]
+tests/cli/test_list.py::test_list_bare_fields_licences PASSED            [ 52%]
+tests/cli/test_list.py::test_list_csv_fields_licences PASSED             [ 52%]
+tests/cli/test_list.py::test_list_json_fields_licences PASSED            [ 52%]
+tests/cli/test_list.py::test_list_markdown_fields_licences PASSED        [ 52%]
+tests/cli/test_list.py::test_list_csv_include_exclude_valid PASSED       [ 52%]
+tests/cli/test_list.py::test_list_packages_in_given_venv PASSED          [ 52%]
+tests/cli/test_list.py::test_list_csv_include_exclude PASSED             [ 52%]
+tests/cli/test_lock.py::test_lock_command PASSED                         [ 53%]
+tests/cli/test_lock.py::test_lock_dependencies PASSED                    [ 53%]
+tests/cli/test_lock.py::test_lock_refresh[args0] PASSED                  [ 53%]
+tests/cli/test_lock.py::test_lock_refresh[args1] PASSED                  [ 53%]
+tests/cli/test_lock.py::test_lock_refresh_keep_consistent PASSED         [ 53%]
+tests/cli/test_lock.py::test_lock_check_no_change_success PASSED         [ 53%]
+tests/cli/test_lock.py::test_lock_check_change_fails PASSED              [ 53%]
+tests/cli/test_lock.py::test_innovations_with_specified_lockfile PASSED  [ 53%]
+tests/cli/test_lock.py::test_skip_editable_dependencies_in_metadata PASSED [ 53%]
+tests/cli/test_lock.py::test_lock_selected_groups PASSED                 [ 54%]
+tests/cli/test_lock.py::test_lock_self_referencing_groups[False] PASSED  [ 54%]
+tests/cli/test_lock.py::test_lock_self_referencing_groups[True] PASSED   [ 54%]
+tests/cli/test_lock.py::test_lock_multiple_platform_wheels PASSED        [ 54%]
+tests/cli/test_lock.py::test_lock_current_platform_wheels[args0] PASSED  [ 54%]
+tests/cli/test_lock.py::test_lock_current_platform_wheels[args1] PASSED  [ 54%]
+tests/cli/test_lock.py::test_parse_lock_strategy_group_options PASSED    [ 54%]
+tests/cli/test_lock.py::test_apply_lock_strategy_changes PASSED          [ 54%]
+tests/cli/test_lock.py::test_apply_lock_strategy_changes_invalid[strategy0] PASSED [ 55%]
+tests/cli/test_lock.py::test_apply_lock_strategy_changes_invalid[strategy1] PASSED [ 55%]
+tests/cli/test_lock.py::test_lock_direct_minimal_versions PASSED         [ 55%]
+tests/cli/test_lock.py::test_lock_direct_minimal_versions_real[args0] PASSED [ 55%]
+tests/cli/test_lock.py::test_lock_direct_minimal_versions_real[args1] PASSED [ 55%]
+tests/cli/test_lock.py::test_lockfile_compatibility[4.1.0-Compatibility.BACKWARD] PASSED [ 55%]
+tests/cli/test_lock.py::test_lockfile_compatibility[4.1.1-Compatibility.SAME] PASSED [ 55%]
+tests/cli/test_lock.py::test_lockfile_compatibility[4.1.2-Compatibility.FORWARD] PASSED [ 55%]
+tests/cli/test_lock.py::test_lockfile_compatibility[4.2-Compatibility.NONE] PASSED [ 56%]
+tests/cli/test_lock.py::test_lockfile_compatibility[3.0-Compatibility.NONE] PASSED [ 56%]
+tests/cli/test_lock.py::test_lockfile_compatibility[4.0.1-Compatibility.BACKWARD] PASSED [ 56%]
+tests/cli/test_lock.py::test_lock_default_inherit_metadata PASSED        [ 56%]
+tests/cli/test_lock.py::test_lock_inherit_metadata_strategy PASSED       [ 56%]
+tests/cli/test_others.py::test_build_distributions PASSED                [ 56%]
+tests/cli/test_others.py::test_project_no_init_error PASSED              [ 56%]
+tests/cli/test_others.py::test_help_option PASSED                        [ 56%]
+tests/cli/test_others.py::test_pep582_option PASSED                      [ 56%]
+tests/cli/test_others.py::test_info_command PASSED                       [ 57%]
+tests/cli/test_others.py::test_info_command_json FAILED                  [ 57%]
+tests/cli/test_others.py::test_info_global_project PASSED                [ 57%]
+tests/cli/test_others.py::test_info_with_multiple_venvs PASSED           [ 57%]
+tests/cli/test_others.py::test_global_project_other_location PASSED      [ 57%]
+tests/cli/test_others.py::test_uncaught_error PASSED                     [ 57%]
+tests/cli/test_others.py::test_import_other_format_file[requirements.txt] PASSED [ 57%]
+tests/cli/test_others.py::test_import_other_format_file[Pipfile] PASSED  [ 57%]
+tests/cli/test_others.py::test_import_other_format_file[pyproject.toml] PASSED [ 58%]
+tests/cli/test_others.py::test_import_other_format_file[projects/flit-demo/pyproject.toml] PASSED [ 58%]
+tests/cli/test_others.py::test_import_requirement_no_overwrite PASSED    [ 58%]
+tests/cli/test_others.py::test_search_package PASSED                     [ 58%]
+tests/cli/test_others.py::test_show_package_on_pypi PASSED               [ 58%]
+tests/cli/test_others.py::test_show_self_package PASSED                  [ 58%]
+tests/cli/test_others.py::test_export_to_requirements_txt PASSED         [ 58%]
+tests/cli/test_others.py::test_export_doesnt_include_dep_with_extras PASSED [ 58%]
+tests/cli/test_others.py::test_completion_command PASSED                 [ 59%]
+tests/cli/test_others.py::test_show_update_hint PASSED                   [ 59%]
+tests/cli/test_others.py::test_export_with_platform_markers PASSED       [ 59%]
+tests/cli/test_publish.py::test_package_parse_metadata[demo-0.0.1-py2.py3-none-any.whl] PASSED [ 59%]
+tests/cli/test_publish.py::test_package_parse_metadata[demo-0.0.1.tar.gz] PASSED [ 59%]
+tests/cli/test_publish.py::test_package_parse_metadata[demo-0.0.1.zip] PASSED [ 59%]
+tests/cli/test_publish.py::test_parse_metadata_with_non_ascii_chars PASSED [ 59%]
+tests/cli/test_publish.py::test_package_add_signature PASSED             [ 59%]
+tests/cli/test_publish.py::test_package_call_gpg_sign PASSED             [ 59%]
+tests/cli/test_publish.py::test_repository_get_release_urls PASSED       [ 60%]
+tests/cli/test_publish.py::test_publish_pick_up_asc_files PASSED         [ 60%]
+tests/cli/test_publish.py::test_publish_package_with_signature PASSED    [ 60%]
+tests/cli/test_publish.py::test_publish_and_build_in_one_run PASSED      [ 60%]
+tests/cli/test_publish.py::test_publish_cli_args_and_env_var_precedence PASSED [ 60%]
+tests/cli/test_publish.py::test_repository_get_credentials_from_keyring PASSED [ 60%]
+tests/cli/test_remove.py::test_remove_command PASSED                     [ 60%]
+tests/cli/test_remove.py::test_remove_editable_packages_while_keeping_normal PASSED [ 60%]
+tests/cli/test_remove.py::test_remove_package[False] PASSED              [ 61%]
+tests/cli/test_remove.py::test_remove_package[True] PASSED               [ 61%]
+tests/cli/test_remove.py::test_remove_package_no_lock[False] PASSED      [ 61%]
+tests/cli/test_remove.py::test_remove_package_no_lock[True] PASSED       [ 61%]
+tests/cli/test_remove.py::test_remove_package_with_dry_run PASSED        [ 61%]
+tests/cli/test_remove.py::test_remove_package_no_sync PASSED             [ 61%]
+tests/cli/test_remove.py::test_remove_package_not_exist PASSED           [ 61%]
+tests/cli/test_remove.py::test_remove_package_exist_in_multi_groups PASSED [ 61%]
+tests/cli/test_remove.py::test_remove_no_package PASSED                  [ 62%]
+tests/cli/test_remove.py::test_remove_package_wont_break_toml PASSED     [ 62%]
+tests/cli/test_remove.py::test_remove_group_not_in_lockfile PASSED       [ 62%]
+tests/cli/test_run.py::test_pep582_launcher_for_python_interpreter PASSED [ 62%]
+tests/cli/test_run.py::test_auto_isolate_site_packages PASSED            [ 62%]
+tests/cli/test_run.py::test_run_with_site_packages PASSED                [ 62%]
+tests/cli/test_run.py::test_run_command_not_found PASSED                 [ 62%]
+tests/cli/test_run.py::test_run_pass_exit_code PASSED                    [ 62%]
+tests/cli/test_run.py::test_run_cmd_script PASSED                        [ 62%]
+tests/cli/test_run.py::test_run_cmd_script_with_array PASSED             [ 63%]
+tests/cli/test_run.py::test_run_script_pass_project_root PASSED          [ 63%]
+tests/cli/test_run.py::test_run_shell_script PASSED                      [ 63%]
+tests/cli/test_run.py::test_run_script_with_relative_path PASSED         [ 63%]
+tests/cli/test_run.py::test_run_non_existing_local_script PASSED         [ 63%]
+tests/cli/test_run.py::test_run_shell_script_with_args_placeholder[with-args] PASSED [ 63%]
+tests/cli/test_run.py::test_run_shell_script_with_args_placeholder[without-args] PASSED [ 63%]
+tests/cli/test_run.py::test_run_shell_script_with_args_placeholder_with_default[with-args] PASSED [ 63%]
+tests/cli/test_run.py::test_run_shell_script_with_args_placeholder_with_default[with-default] PASSED [ 64%]
+tests/cli/test_run.py::test_run_call_script PASSED                       [ 64%]
+tests/cli/test_run.py::test_run_script_with_extra_args PASSED            [ 64%]
+tests/cli/test_run.py::test_run_script_with_args_placeholder[as-str-with-args] PASSED [ 64%]
+tests/cli/test_run.py::test_run_script_with_args_placeholder[as-str-without-args] PASSED [ 64%]
+tests/cli/test_run.py::test_run_script_with_args_placeholder[as-list-with-args] PASSED [ 64%]
+tests/cli/test_run.py::test_run_script_with_args_placeholder[as-list-without-args] PASSED [ 64%]
+tests/cli/test_run.py::test_run_script_with_args_placeholder_with_default[as-str-with-args] PASSED [ 64%]
+tests/cli/test_run.py::test_run_script_with_args_placeholder_with_default[as-str-default] PASSED [ 65%]
+tests/cli/test_run.py::test_run_script_with_args_placeholder_with_default[as-list-with-args] PASSED [ 65%]
+tests/cli/test_run.py::test_run_script_with_args_placeholder_with_default[as-list-default] PASSED [ 65%]
+tests/cli/test_run.py::test_run_shell_script_with_pdm_placeholder PASSED [ 65%]
+tests/cli/test_run.py::test_run_expand_env_vars PASSED                   [ 65%]
+tests/cli/test_run.py::test_run_expand_env_vars_from_config PASSED       [ 65%]
+tests/cli/test_run.py::test_run_script_with_env_defined PASSED           [ 65%]
+tests/cli/test_run.py::test_run_script_with_dotenv_file PASSED           [ 65%]
+tests/cli/test_run.py::test_run_script_override_global_env PASSED        [ 65%]
+tests/cli/test_run.py::test_run_show_list_of_scripts PASSED              [ 66%]
+tests/cli/test_run.py::test_run_show_list_of_scripts_hide_internals PASSED [ 66%]
+tests/cli/test_run.py::test_run_json_list_of_scripts PASSED              [ 66%]
+tests/cli/test_run.py::test_run_with_another_project_root[True] PASSED   [ 66%]
+tests/cli/test_run.py::test_run_with_another_project_root[False] PASSED  [ 66%]
+tests/cli/test_run.py::test_import_another_sitecustomize FAILED          [ 66%]
+tests/cli/test_run.py::test_run_with_patched_sysconfig PASSED            [ 66%]
+tests/cli/test_run.py::test_run_composite PASSED                         [ 66%]
+tests/cli/test_run.py::test_composite_stops_on_first_failure PASSED      [ 67%]
+tests/cli/test_run.py::test_composite_inherit_env PASSED                 [ 67%]
+tests/cli/test_run.py::test_composite_fail_on_first_missing_task PASSED  [ 67%]
+tests/cli/test_run.py::test_composite_runs_all_hooks PASSED              [ 67%]
+tests/cli/test_run.py::test_composite_pass_parameters_to_subtasks PASSED [ 67%]
+tests/cli/test_run.py::test_composite_can_pass_parameters PASSED         [ 67%]
+tests/cli/test_run.py::test_composite_only_pass_parameters_to_subtasks_with_args[with-args] PASSED [ 67%]
+tests/cli/test_run.py::test_composite_only_pass_parameters_to_subtasks_with_args[without-args] PASSED [ 67%]
+tests/cli/test_run.py::test_composite_only_pass_parameters_to_subtasks_with_args_with_default[with-args] PASSED [ 68%]
+tests/cli/test_run.py::test_composite_only_pass_parameters_to_subtasks_with_args_with_default[default] PASSED [ 68%]
+tests/cli/test_run.py::test_composite_hooks_inherit_env PASSED           [ 68%]
+tests/cli/test_run.py::test_composite_inherit_env_in_cascade PASSED      [ 68%]
+tests/cli/test_run.py::test_composite_inherit_dotfile PASSED             [ 68%]
+tests/cli/test_run.py::test_composite_can_have_commands PASSED           [ 68%]
+tests/cli/test_run.py::test_run_shortcut PASSED                          [ 68%]
+tests/cli/test_run.py::test_run_shortcuts_dont_override_commands PASSED  [ 68%]
+tests/cli/test_run.py::test_run_shortcut_fail_with_usage_if_script_not_found PASSED [ 68%]
+tests/cli/test_run.py::test_empty_positionnal_args_still_display_usage[unknown param] PASSED [ 69%]
+tests/cli/test_run.py::test_empty_positionnal_args_still_display_usage[not an user script] PASSED [ 69%]
+tests/cli/test_run.py::test_empty_positional_args_display_help PASSED    [ 69%]
+tests/cli/test_self_command.py::test_self_list PASSED                    [ 69%]
+tests/cli/test_self_command.py::test_self_list_plugins PASSED            [ 69%]
+tests/cli/test_self_command.py::test_self_add PASSED                     [ 69%]
+tests/cli/test_self_command.py::test_self_remove PASSED                  [ 69%]
+tests/cli/test_self_command.py::test_self_update[args0-expected0] PASSED [ 69%]
+tests/cli/test_self_command.py::test_self_update[args1-expected1] PASSED [ 70%]
+tests/cli/test_self_command.py::test_self_update[args2-expected2] PASSED [ 70%]
+tests/cli/test_self_command.py::test_self_update_already_latest PASSED   [ 70%]
+tests/cli/test_template.py::test_non_pyproject_template_disallowed PASSED [ 70%]
+tests/cli/test_template.py::test_module_project_template PASSED          [ 70%]
+tests/cli/test_template.py::test_module_project_template_generate_application PASSED [ 70%]
+tests/cli/test_template.py::test_package_project_template PASSED         [ 70%]
+tests/cli/test_update.py::test_update_packages_with_top PASSED           [ 70%]
+tests/cli/test_update.py::test_update_command PASSED                     [ 71%]
+tests/cli/test_update.py::test_update_ignore_constraints PASSED          [ 71%]
+tests/cli/test_update.py::test_update_all_packages[reuse] PASSED         [ 71%]
+tests/cli/test_update.py::test_update_all_packages[all] PASSED           [ 71%]
+tests/cli/test_update.py::test_update_no_lock PASSED                     [ 71%]
+tests/cli/test_update.py::test_update_dry_run PASSED                     [ 71%]
+tests/cli/test_update.py::test_update_top_packages_dry_run PASSED        [ 71%]
+tests/cli/test_update.py::test_update_specified_packages PASSED          [ 71%]
+tests/cli/test_update.py::test_update_specified_packages_eager_mode PASSED [ 71%]
+tests/cli/test_update.py::test_update_specified_packages_eager_mode_config PASSED [ 72%]
+tests/cli/test_update.py::test_update_with_package_and_groups_argument PASSED [ 72%]
+tests/cli/test_update.py::test_update_with_prerelease_without_package_argument PASSED [ 72%]
+tests/cli/test_update.py::test_update_existing_package_with_prerelease PASSED [ 72%]
+tests/cli/test_update.py::test_update_package_with_extras PASSED         [ 72%]
+tests/cli/test_update.py::test_update_groups_in_lockfile PASSED          [ 72%]
+tests/cli/test_update.py::test_update_group_not_in_lockfile PASSED       [ 72%]
+tests/cli/test_use.py::test_use_command PASSED                           [ 72%]
+tests/cli/test_use.py::test_use_python_by_version PASSED                 [ 73%]
+tests/cli/test_use.py::test_use_wrapper_python PASSED                    [ 73%]
+tests/cli/test_use.py::test_use_invalid_wrapper_python PASSED            [ 73%]
+tests/cli/test_use.py::test_use_remember_last_selection PASSED           [ 73%]
+tests/cli/test_use.py::test_use_venv_python PASSED                       [ 73%]
+tests/cli/test_utils.py::test_help_with_unknown_arguments PASSED         [ 73%]
+tests/cli/test_venv.py::test_venv_create PASSED                          [ 73%]
+tests/cli/test_venv.py::test_venv_create_in_project PASSED               [ 73%]
+tests/cli/test_venv.py::test_venv_create_other_location PASSED           [ 74%]
+tests/cli/test_venv.py::test_venv_show_path PASSED                       [ 74%]
+tests/cli/test_venv.py::test_venv_list PASSED                            [ 74%]
+tests/cli/test_venv.py::test_venv_remove PASSED                          [ 74%]
+tests/cli/test_venv.py::test_venv_recreate PASSED                        [ 74%]
+tests/cli/test_venv.py::test_venv_activate[virtualenv] PASSED            [ 74%]
+tests/cli/test_venv.py::test_venv_activate[venv] PASSED                  [ 74%]
+tests/cli/test_venv.py::test_venv_activate_custom_prompt[virtualenv] PASSED [ 74%]
+tests/cli/test_venv.py::test_venv_activate_custom_prompt[venv] PASSED    [ 75%]
+tests/cli/test_venv.py::test_venv_activate_project_without_python PASSED [ 75%]
+tests/cli/test_venv.py::test_venv_activate_error PASSED                  [ 75%]
+tests/cli/test_venv.py::test_venv_activate_no_shell[virtualenv] PASSED   [ 75%]
+tests/cli/test_venv.py::test_venv_activate_no_shell[venv] PASSED         [ 75%]
+tests/cli/test_venv.py::test_venv_auto_create[True] PASSED               [ 75%]
+tests/cli/test_venv.py::test_venv_auto_create[False] PASSED              [ 75%]
+tests/cli/test_venv.py::test_venv_purge PASSED                           [ 75%]
+tests/cli/test_venv.py::test_venv_purge_force PASSED                     [ 75%]
+tests/cli/test_venv.py::test_venv_purge_interactive[virtualenv-none-True] PASSED [ 76%]
+tests/cli/test_venv.py::test_venv_purge_interactive[virtualenv-0-False] PASSED [ 76%]
+tests/cli/test_venv.py::test_venv_purge_interactive[virtualenv-all-False] PASSED [ 76%]
+tests/cli/test_venv.py::test_venv_purge_interactive[venv-none-True] PASSED [ 76%]
+tests/cli/test_venv.py::test_venv_purge_interactive[venv-0-False] PASSED [ 76%]
+tests/cli/test_venv.py::test_venv_purge_interactive[venv-all-False] PASSED [ 76%]
+tests/cli/test_venv.py::test_virtualenv_backend_create[True] PASSED      [ 76%]
+tests/cli/test_venv.py::test_virtualenv_backend_create[False] PASSED     [ 76%]
+tests/cli/test_venv.py::test_venv_backend_create[True] PASSED            [ 77%]
+tests/cli/test_venv.py::test_venv_backend_create[False] PASSED           [ 77%]
+tests/cli/test_venv.py::test_conda_backend_create[True] PASSED           [ 77%]
+tests/cli/test_venv.py::test_conda_backend_create[False] PASSED          [ 77%]
+tests/models/test_backends.py::test_project_backend[pdm-backend] PASSED  [ 77%]
+tests/models/test_backends.py::test_project_backend[setuptools] PASSED   [ 77%]
+tests/models/test_backends.py::test_project_backend[flit-core] PASSED    [ 77%]
+tests/models/test_backends.py::test_project_backend[hatchling] PASSED    [ 77%]
+tests/models/test_backends.py::test_hatch_expand_variables PASSED        [ 78%]
+tests/models/test_backends.py::test_pdm_backend_expand_variables PASSED  [ 78%]
+tests/models/test_backends.py::test_get_relative_path[file:///foo/bar-None] PASSED [ 78%]
+tests/models/test_backends.py::test_get_relative_path[https://example.org-None] PASSED [ 78%]
+tests/models/test_backends.py::test_get_relative_path[file:///${PROJECT_ROOT}/demo%20package-demo package] PASSED [ 78%]
+tests/models/test_backends.py::test_get_relative_path[file:///${PROJECT_ROOT}/../demo-../demo] PASSED [ 78%]
+tests/models/test_backends.py::test_get_relative_path[{root:uri}/demo%20package-demo package] PASSED [ 78%]
+tests/models/test_candidates.py::test_parse_local_directory_metadata[False] PASSED [ 78%]
+tests/models/test_candidates.py::test_parse_local_directory_metadata[True] PASSED [ 78%]
+tests/models/test_candidates.py::test_parse_vcs_metadata[False] PASSED   [ 79%]
+tests/models/test_candidates.py::test_parse_vcs_metadata[True] PASSED    [ 79%]
+tests/models/test_candidates.py::test_parse_artifact_metadata[/home/rasdan/Documents/dd2480/pdm/tests/fixtures/artifacts/demo-0.0.1.tar.gz] PASSED [ 79%]
+tests/models/test_candidates.py::test_parse_artifact_metadata[/home/rasdan/Documents/dd2480/pdm/tests/fixtures/artifacts/demo-0.0.1-py2.py3-none-any.whl] PASSED [ 79%]
+tests/models/test_candidates.py::test_parse_metadata_with_extras PASSED  [ 79%]
+tests/models/test_candidates.py::test_parse_remote_link_metadata PASSED  [ 79%]
+tests/models/test_candidates.py::test_parse_abnormal_specifiers XFAIL    [ 79%]
+tests/models/test_candidates.py::test_expand_project_root_in_url[demo @ file:///${PROJECT_ROOT}/tests/fixtures/artifacts/demo-0.0.1-py2.py3-none-any.whl] PASSED [ 79%]
+tests/models/test_candidates.py::test_expand_project_root_in_url[demo @ file:///${PROJECT_ROOT}/tests/fixtures/artifacts/demo-0.0.1.tar.gz] PASSED [ 80%]
+tests/models/test_candidates.py::test_expand_project_root_in_url[demo @ file:///${PROJECT_ROOT}/tests/fixtures/projects/demo] PASSED [ 80%]
+tests/models/test_candidates.py::test_expand_project_root_in_url[-e ./tests/fixtures/projects/demo] PASSED [ 80%]
+tests/models/test_candidates.py::test_expand_project_root_in_url[-e file:///${PROJECT_ROOT}/tests/fixtures/projects/demo#egg=demo] PASSED [ 80%]
+tests/models/test_candidates.py::test_expand_project_root_in_url[-e file:///${PROJECT_ROOT}/tests/fixtures/projects/demo-#-with-hash#egg=demo] PASSED [ 80%]
+tests/models/test_candidates.py::test_parse_project_file_on_build_error PASSED [ 80%]
+tests/models/test_candidates.py::test_parse_project_file_on_build_error_with_extras PASSED [ 80%]
+tests/models/test_candidates.py::test_parse_project_file_on_build_error_no_dep PASSED [ 80%]
+tests/models/test_candidates.py::test_parse_poetry_project_metadata[False] PASSED [ 81%]
+tests/models/test_candidates.py::test_parse_poetry_project_metadata[True] PASSED [ 81%]
+tests/models/test_candidates.py::test_parse_flit_project_metadata[False] PASSED [ 81%]
+tests/models/test_candidates.py::test_parse_flit_project_metadata[True] PASSED [ 81%]
+tests/models/test_candidates.py::test_vcs_candidate_in_subdirectory[False] PASSED [ 81%]
+tests/models/test_candidates.py::test_vcs_candidate_in_subdirectory[True] PASSED [ 81%]
+tests/models/test_candidates.py::test_sdist_candidate_with_wheel_cache PASSED [ 81%]
+tests/models/test_candidates.py::test_cache_vcs_immutable_revision PASSED [ 81%]
+tests/models/test_candidates.py::test_cache_egg_info_sdist PASSED        [ 81%]
+tests/models/test_candidates.py::test_invalidate_incompatible_wheel_link PASSED [ 82%]
+tests/models/test_candidates.py::test_legacy_pep345_tag_link PASSED      [ 82%]
+tests/models/test_candidates.py::test_ignore_invalid_py_version PASSED   [ 82%]
+tests/models/test_candidates.py::test_find_candidates_from_find_links PASSED [ 82%]
+tests/models/test_candidates.py::test_parse_metadata_from_pep621 PASSED  [ 82%]
+tests/models/test_candidates.py::test_parse_metadata_with_dynamic_fields PASSED [ 82%]
+tests/models/test_candidates.py::test_get_metadata_for_non_existing_path PASSED [ 82%]
+tests/models/test_marker.py::test_split_pyspec[python_version > '3'-->=3.1] PASSED [ 82%]
+tests/models/test_marker.py::test_split_pyspec[python_version > '3.8'-->=3.9] PASSED [ 83%]
+tests/models/test_marker.py::test_split_pyspec[python_version != '3.8'--!=3.8.*] PASSED [ 83%]
+tests/models/test_marker.py::test_split_pyspec[python_version == '3.7'-->=3.7,<3.8] PASSED [ 83%]
+tests/models/test_marker.py::test_split_pyspec[python_version in '3.6 3.7'-->=3.6,<3.8] PASSED [ 83%]
+tests/models/test_marker.py::test_split_pyspec[python_full_version >= '3.6.0'-->=3.6] PASSED [ 83%]
+tests/models/test_marker.py::test_split_pyspec[python_full_version not in '3.8.3'--!=3.8.3] PASSED [ 83%]
+tests/models/test_marker.py::test_split_pyspec[python_version > '3.7' and os_name == 'nt'-os_name == "nt"->=3.8] PASSED [ 83%]
+tests/models/test_marker.py::test_split_pyspec[python_version > '3.7' or os_name == 'nt'-python_version > "3.7" or os_name == "nt"-] PASSED [ 83%]
+tests/models/test_requirements.py::test_convert_req_dict_to_req_line[requests-None] PASSED [ 84%]
+tests/models/test_requirements.py::test_convert_req_dict_to_req_line[requests<2.21.0,>=2.20.0-None] PASSED [ 84%]
+tests/models/test_requirements.py::test_convert_req_dict_to_req_line[requests==2.19.0; os_name == "nt"-None] PASSED [ 84%]
+tests/models/test_requirements.py::test_convert_req_dict_to_req_line[requests[security,tests]==2.8.*,>=2.8.1; python_version < "2.7"-None] PASSED [ 84%]
+tests/models/test_requirements.py::test_convert_req_dict_to_req_line[pip @ https://github.com/pypa/pip/archive/1.3.1.zip ; python_version > "3.4"-None] PASSED [ 84%]
+tests/models/test_requirements.py::test_convert_req_dict_to_req_line[git+http://git.example.com/MyProject.git@master#egg=MyProject-MyProject @ git+http://git.example.com/MyProject.git@master] PASSED [ 84%]
+tests/models/test_requirements.py::test_convert_req_dict_to_req_line[https://github.com/pypa/pip/archive/1.3.1.zip-None] PASSED [ 84%]
+tests/models/test_requirements.py::test_convert_req_dict_to_req_line[/home/rasdan/Documents/dd2480/pdm/tests/fixtures/projects/demo-demo @ file:///home/rasdan/Documents/dd2480/pdm/tests/fixtures/projects/demo] PASSED [ 84%]
+tests/models/test_requirements.py::test_convert_req_dict_to_req_line[/home/rasdan/Documents/dd2480/pdm/tests/fixtures/artifacts/demo-0.0.1-py2.py3-none-any.whl-demo @ file:///home/rasdan/Documents/dd2480/pdm/tests/fixtures/artifacts/demo-0.0.1-py2.py3-none-any.whl] PASSED [ 84%]
+tests/models/test_requirements.py::test_convert_req_dict_to_req_line[/home/rasdan/Documents/dd2480/pdm/tests/fixtures/projects/demo[security]-demo[security] @ file:///home/rasdan/Documents/dd2480/pdm/tests/fixtures/projects/demo] PASSED [ 85%]
+tests/models/test_requirements.py::test_convert_req_dict_to_req_line[requests; python_version=="3.7.*"-requests; python_version == "3.7.*"] PASSED [ 85%]
+tests/models/test_requirements.py::test_convert_req_dict_to_req_line[git+git@github.com:pypa/pip.git#egg=pip-pip @ git+ssh://git@github.com/pypa/pip.git] PASSED [ 85%]
+tests/models/test_requirements.py::test_convert_req_dict_to_req_line[foo >=4.*, <=5.*-foo<5.0,>=4.0] PASSED [ 85%]
+tests/models/test_requirements.py::test_convert_req_dict_to_req_line[foo (>=4.*, <=5.*)-foo<5.0,>=4.0] PASSED [ 85%]
+tests/models/test_requirements.py::test_convert_req_dict_to_req_line[foo>=3.0+g1234; python_version>='3.6'-foo>=3.0; python_version >= "3.6"] PASSED [ 85%]
+tests/models/test_requirements.py::test_illegal_requirement_line[requests; os_name=>'nt'-None] PASSED [ 85%]
+tests/models/test_requirements.py::test_illegal_requirement_line[./tests-The local path (.+)? is not installable] PASSED [ 85%]
+tests/models/test_requirements.py::test_illegal_requirement_line[django>=2<4-None] PASSED [ 86%]
+tests/models/test_requirements.py::test_not_supported_editable_requirement[requests >= 2.19.0] PASSED [ 86%]
+tests/models/test_requirements.py::test_not_supported_editable_requirement[https://github.com/pypa/pip/archive/1.3.1.zip] PASSED [ 86%]
+tests/models/test_requirements.py::test_filter_requirements_with_extras PASSED [ 86%]
+tests/models/test_setup_parsing.py::test_parse_setup_cfg[[metadata]\nname = foo\nversion = 0.1.0\n-result0] PASSED [ 86%]
+tests/models/test_setup_parsing.py::test_parse_setup_cfg[[metadata]\nname = foo\nversion = attr:foo.__version__\n-result1] PASSED [ 86%]
+tests/models/test_setup_parsing.py::test_parse_setup_cfg[[metadata]\nname = foo\nversion = 0.1.0\n\n[options]\npython_requires = >=3.6\ninstall_requires =\n    click\n    requests\n[options.extras_require]\ntui =\n    rich\n-result2] PASSED [ 86%]
+tests/models/test_setup_parsing.py::test_parse_setup_py[from setuptools import setup\n\nsetup(name="foo", version="0.1.0")\n-result0] PASSED [ 86%]
+tests/models/test_setup_parsing.py::test_parse_setup_py[import setuptools\n\nsetuptools.setup(name="foo", version="0.1.0")\n-result1] PASSED [ 87%]
+tests/models/test_setup_parsing.py::test_parse_setup_py[from setuptools import setup\n\nkwargs = {"name": "foo", "version": "0.1.0"}\nsetup(**kwargs)\n-result2] PASSED [ 87%]
+tests/models/test_setup_parsing.py::test_parse_setup_py[from setuptools import setup\nname = 'foo'\nsetup(name=name, version="0.1.0")\n-result3] PASSED [ 87%]
+tests/models/test_setup_parsing.py::test_parse_setup_py[from setuptools import setup\n\nsetup(name="foo", version="0.1.0", install_requires=['click', 'requests'],\n      python_requires='>=3.6', extras_require={'tui': ['rich']})\n-result4] PASSED [ 87%]
+tests/models/test_setup_parsing.py::test_parse_setup_py[from pathlib import Path\nfrom setuptools import setup\n\nversion = Path('__version__.py').read_text().strip()\n\nsetup(name="foo", version=version)\n-result5] PASSED [ 87%]
+tests/models/test_setup_parsing.py::test_parse_pyproject_toml PASSED     [ 87%]
+tests/models/test_specifiers.py::test_normalize_pyspec[>=3.6->=3.6] PASSED [ 87%]
+tests/models/test_specifiers.py::test_normalize_pyspec[<3.8-<3.8] PASSED [ 87%]
+tests/models/test_specifiers.py::test_normalize_pyspec[~=2.7.0->=2.7,<2.8] PASSED [ 87%]
+tests/models/test_specifiers.py::test_normalize_pyspec[-] PASSED         [ 88%]
+tests/models/test_specifiers.py::test_normalize_pyspec[>=3.6,<3.8->=3.6,<3.8] PASSED [ 88%]
+tests/models/test_specifiers.py::test_normalize_pyspec[>3.6->=3.6.1] PASSED [ 88%]
+tests/models/test_specifiers.py::test_normalize_pyspec[<=3.7-<3.7.1] PASSED [ 88%]
+tests/models/test_specifiers.py::test_normalize_pyspec[<3.3,!=3.4.*,!=3.5.*-<3.3] PASSED [ 88%]
+tests/models/test_specifiers.py::test_normalize_pyspec[>=3.6,!=3.4.*->=3.6] PASSED [ 88%]
+tests/models/test_specifiers.py::test_normalize_pyspec[>=3.6,!=3.6.*->=3.7] PASSED [ 88%]
+tests/models/test_specifiers.py::test_normalize_pyspec[>=3.6,<3.8,!=3.8.*->=3.6,<3.8] PASSED [ 88%]
+tests/models/test_specifiers.py::test_normalize_pyspec[>=2.7,<3.2,!=3.0.*,!=3.1.*->=2.7,<3.0] PASSED [ 89%]
+tests/models/test_specifiers.py::test_normalize_pyspec[!=3.0.*,!=3.0.2-!=3.0.*] PASSED [ 89%]
+tests/models/test_specifiers.py::test_normalize_pyspec[>=3.4.*->=3.4] PASSED [ 89%]
+tests/models/test_specifiers.py::test_normalize_pyspec[>3.4.*->=3.4] PASSED [ 89%]
+tests/models/test_specifiers.py::test_normalize_pyspec[<=3.4.*-<3.4] PASSED [ 89%]
+tests/models/test_specifiers.py::test_normalize_pyspec[<3.4.*-<3.4] PASSED [ 89%]
+tests/models/test_specifiers.py::test_normalize_pyspec[>=3.0+g1234->=3.0] PASSED [ 89%]
+tests/models/test_specifiers.py::test_normalize_pyspec[<3.0+g1234-<3.0] PASSED [ 89%]
+tests/models/test_specifiers.py::test_normalize_pyspec[<3.10.0a6-<3.10.0a6] PASSED [ 90%]
+tests/models/test_specifiers.py::test_normalize_pyspec[<3.10.2a3-<3.10.2a3] PASSED [ 90%]
+tests/models/test_specifiers.py::test_pyspec_and_op[>=3.6->=3.0->=3.6] PASSED [ 90%]
+tests/models/test_specifiers.py::test_pyspec_and_op[>=3.6-<3.8->=3.6,<3.8] PASSED [ 90%]
+tests/models/test_specifiers.py::test_pyspec_and_op[->=3.6->=3.6] PASSED [ 90%]
+tests/models/test_specifiers.py::test_pyspec_and_op[>=3.6-<3.2-impossible] PASSED [ 90%]
+tests/models/test_specifiers.py::test_pyspec_and_op[>=2.7,!=3.0.*-!=3.1.*->=2.7,!=3.0.*,!=3.1.*] PASSED [ 90%]
+tests/models/test_specifiers.py::test_pyspec_and_op[>=3.11.0a2-<3.11.0b->=3.11.0a2,<3.11.0b0] PASSED [ 90%]
+tests/models/test_specifiers.py::test_pyspec_and_op[<3.11.0a2->3.11.0b-impossible] PASSED [ 90%]
+tests/models/test_specifiers.py::test_pyspec_or_op[>=3.6->=3.0->=3.0] PASSED [ 91%]
+tests/models/test_specifiers.py::test_pyspec_or_op[->=3.6-] PASSED       [ 91%]
+tests/models/test_specifiers.py::test_pyspec_or_op[>=3.6-<3.7-] PASSED   [ 91%]
+tests/models/test_specifiers.py::test_pyspec_or_op[>=3.6,<3.8->=3.4,<3.7->=3.4,<3.8] PASSED [ 91%]
+tests/models/test_specifiers.py::test_pyspec_or_op[~=2.7->=3.6->=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*] PASSED [ 91%]
+tests/models/test_specifiers.py::test_pyspec_or_op[<2.7.15->=3.0-!=2.7.15,!=2.7.16,!=2.7.17,!=2.7.18] PASSED [ 91%]
+tests/models/test_specifiers.py::test_pyspec_or_op[>3.11.0a2->3.11.0b->=3.11.0a3] PASSED [ 91%]
+tests/models/test_specifiers.py::test_impossible_pyspec PASSED           [ 91%]
+tests/models/test_specifiers.py::test_pyspec_is_subset_superset[~=2.7->=2.7] PASSED [ 92%]
+tests/models/test_specifiers.py::test_pyspec_is_subset_superset[>=3.6-] PASSED [ 92%]
+tests/models/test_specifiers.py::test_pyspec_is_subset_superset[>=3.7->=3.6,<4.0] PASSED [ 92%]
+tests/models/test_specifiers.py::test_pyspec_is_subset_superset[>=2.7,<3.0->=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*] PASSED [ 92%]
+tests/models/test_specifiers.py::test_pyspec_is_subset_superset[>=3.6->=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*] PASSED [ 92%]
+tests/models/test_specifiers.py::test_pyspec_is_subset_superset[>=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*->=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*] PASSED [ 92%]
+tests/models/test_specifiers.py::test_pyspec_is_subset_superset[>=3.11.*->=3.11.0rc] PASSED [ 92%]
+tests/models/test_specifiers.py::test_pyspec_isnot_subset_superset[~=2.7->=2.6,<2.7.15] PASSED [ 92%]
+tests/models/test_specifiers.py::test_pyspec_isnot_subset_superset[>=3.7->=3.6,<3.9] PASSED [ 93%]
+tests/models/test_specifiers.py::test_pyspec_isnot_subset_superset[>=3.7,<3.6-==2.7] PASSED [ 93%]
+tests/models/test_specifiers.py::test_pyspec_isnot_subset_superset[>=3.0,!=3.4.*->=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*] PASSED [ 93%]
+tests/models/test_specifiers.py::test_pyspec_isnot_subset_superset[>=3.11.0-<3.11.0a] PASSED [ 93%]
+tests/models/test_versions.py::test_unsupported_post_version PASSED      [ 93%]
+tests/models/test_versions.py::test_support_prerelease_version PASSED    [ 93%]
+tests/models/test_versions.py::test_normalize_non_standard_version PASSED [ 93%]
+tests/models/test_versions.py::test_version_comparison PASSED            [ 93%]
+tests/models/test_versions.py::test_version_is_wildcard PASSED           [ 93%]
+tests/models/test_versions.py::test_version_is_py2 PASSED                [ 94%]
+tests/models/test_versions.py::test_version_complete[3.9-args0-3.9.0] PASSED [ 94%]
+tests/models/test_versions.py::test_version_complete[3.9-args1-3.9.*] PASSED [ 94%]
+tests/models/test_versions.py::test_version_complete[3-args2-3.0] PASSED [ 94%]
+tests/models/test_versions.py::test_version_bump[3.8.0--1-3.8.1] PASSED  [ 94%]
+tests/models/test_versions.py::test_version_bump[3.8--1-3.9.0] PASSED    [ 94%]
+tests/models/test_versions.py::test_version_bump[3-0-4.0.0] PASSED       [ 94%]
+tests/models/test_versions.py::test_version_bump[3.8.1-1-3.9.0] PASSED   [ 94%]
+tests/models/test_versions.py::test_version_startswith[3.8.0-3.8-True] PASSED [ 95%]
+tests/models/test_versions.py::test_version_startswith[3.8.*-3.8-True] PASSED [ 95%]
+tests/models/test_versions.py::test_version_startswith[3.8.1-3.7-False] PASSED [ 95%]
+tests/models/test_versions.py::test_version_startswith[3.8-3.8.2-False] PASSED [ 95%]
+tests/models/test_versions.py::test_version_getitem PASSED               [ 95%]
+tests/models/test_versions.py::test_version_setitem PASSED               [ 95%]
+tests/resolver/test_resolve.py::test_resolve_named_requirement PASSED    [ 95%]
+tests/resolver/test_resolve.py::test_resolve_exclude PASSED              [ 95%]
+tests/resolver/test_resolve.py::test_resolve_requires_python PASSED      [ 96%]
+tests/resolver/test_resolve.py::test_resolve_allow_prereleases PASSED    [ 96%]
+tests/resolver/test_resolve.py::test_resolve_with_extras PASSED          [ 96%]
+tests/resolver/test_resolve.py::test_resolve_with_extras_and_excludes PASSED [ 96%]
+tests/resolver/test_resolve.py::test_resolve_local_artifacts[sdist] PASSED [ 96%]
+tests/resolver/test_resolve.py::test_resolve_local_artifacts[wheel] PASSED [ 96%]
+tests/resolver/test_resolve.py::test_resolve_vcs_and_local_requirements[False-/home/rasdan/Documents/dd2480/pdm/tests/fixtures/projects/demo] PASSED [ 96%]
+tests/resolver/test_resolve.py::test_resolve_vcs_and_local_requirements[False-git+https://github.com/test-root/demo.git#egg=demo] PASSED [ 96%]
+tests/resolver/test_resolve.py::test_resolve_vcs_and_local_requirements[True-/home/rasdan/Documents/dd2480/pdm/tests/fixtures/projects/demo] PASSED [ 96%]
+tests/resolver/test_resolve.py::test_resolve_vcs_and_local_requirements[True-git+https://github.com/test-root/demo.git#egg=demo] PASSED [ 97%]
+tests/resolver/test_resolve.py::test_resolve_vcs_without_explicit_name PASSED [ 97%]
+tests/resolver/test_resolve.py::test_resolve_local_and_named_requirement PASSED [ 97%]
+tests/resolver/test_resolve.py::test_resolving_auto_avoid_conflicts PASSED [ 97%]
+tests/resolver/test_resolve.py::test_resolve_conflicting_dependencies PASSED [ 97%]
+tests/resolver/test_resolve.py::test_resolve_conflicting_dependencies_with_overrides[2.1] PASSED [ 97%]
+tests/resolver/test_resolve.py::test_resolve_conflicting_dependencies_with_overrides[>=1.8] PASSED [ 97%]
+tests/resolver/test_resolve.py::test_resolve_conflicting_dependencies_with_overrides[==2.1] PASSED [ 97%]
+tests/resolver/test_resolve.py::test_resolve_no_available_versions PASSED [ 98%]
+tests/resolver/test_resolve.py::test_exclude_incompatible_requirements PASSED [ 98%]
+tests/resolver/test_resolve.py::test_union_markers_from_different_parents PASSED [ 98%]
+tests/resolver/test_resolve.py::test_requirements_from_different_groups PASSED [ 98%]
+tests/resolver/test_resolve.py::test_resolve_two_extras_from_the_same_package PASSED [ 98%]
+tests/resolver/test_resolve.py::test_resolve_package_with_dummy_upbound PASSED [ 98%]
+tests/resolver/test_resolve.py::test_resolve_dependency_with_extra_marker PASSED [ 98%]
+tests/resolver/test_resolve.py::test_resolve_circular_dependencies PASSED [ 98%]
+tests/resolver/test_resolve.py::test_resolve_candidates_to_install PASSED [ 99%]
+tests/resolver/test_resolve.py::test_resolve_prefer_requirement_with_prereleases PASSED [ 99%]
+tests/resolver/test_resolve.py::test_resolve_with_python_marker PASSED   [ 99%]
+tests/resolver/test_resolve.py::test_resolve_file_req_with_prerelease PASSED [ 99%]
+tests/resolver/test_resolve.py::test_resolve_extra_requirements_no_break_constraints PASSED [ 99%]
+tests/resolver/test_resolve.py::test_resolve_extra_and_underlying_to_the_same_version PASSED [ 99%]
+tests/resolver/test_resolve.py::test_resolve_skip_candidate_with_invalid_metadata PASSED [ 99%]
+tests/resolver/test_resolve.py::test_resolve_direct_minimal_versions PASSED [ 99%]
+tests/resolver/test_resolve.py::test_resolve_record_markers PASSED       [100%]
+
+=================================== FAILURES ===================================
+_____________________ test_build_with_no_isolation[False] ______________________
+
+fixture_project = <function fixture_project.<locals>.func at 0x7f91e15acb80>
+pdm = <function pdm.<locals>.caller at 0x7f91d3ddb0d0>, isolated = False
+
+    @pytest.mark.usefixtures("local_finder")
+    @pytest.mark.parametrize("isolated", (True, False))
+    def test_build_with_no_isolation(fixture_project, pdm, isolated):
+        project = fixture_project("demo-failure")
+        project.pyproject.set_data({"project": {"name": "demo", "version": "0.1.0"}})
+        project.pyproject.write()
+        pdm(["add", "first"], obj=project)
+        args = ["build"]
+        if not isolated:
+            args.append("--no-isolation")
+        result = pdm(args, obj=project)
+>       assert result.exit_code == int(isolated)
+E       AssertionError: assert 1 == 0
+E        +  where 1 = RunResult(exit_code=1, stdout='Building sdist...\n', stderr='See /tmp/pdm-build-tfzq3k6y.log for detailed debug log.\n[PdmUsageError]: Python 2.7 has reached EOL and PDM no longer supports it. Please upgrade your Python to 3.6 or later.\n', exception=None).exit_code
+E        +  and   0 = int(False)
+
+tests/cli/test_build.py:157: AssertionError
+---------------------------- Captured stdout setup -----------------------------
+Changes are written to pyproject.toml.
+----------------------------- Captured stdout call -----------------------------
+Changes are written to pyproject.toml.
+------------------------------ Captured log call -------------------------------
+ERROR    pdm.termui:termui.py:249 Error occurs
+Traceback (most recent call last):
+  File "/home/rasdan/Documents/dd2480/pdm/src/pdm/termui.py", line 246, in logging
+    yield logger
+  File "/home/rasdan/Documents/dd2480/pdm/src/pdm/cli/commands/build.py", line 58, in do_build
+    loc = SdistBuilder(project.root, project.environment).build(dest, config_settings)
+  File "/home/rasdan/Documents/dd2480/pdm/src/pdm/project/core.py", line 290, in environment
+    self._environment = self.get_environment()
+  File "/home/rasdan/Documents/dd2480/pdm/src/pdm/project/core.py", line 270, in get_environment
+    else PythonLocalEnvironment(self)
+  File "/home/rasdan/Documents/dd2480/pdm/src/pdm/environments/base.py", line 65, in __init__
+    self._interpreter = project.python
+  File "/home/rasdan/Documents/dd2480/pdm/src/pdm/project/core.py", line 153, in python
+    raise PdmUsageError(
+pdm.exceptions.PdmUsageError: Python 2.7 has reached EOL and PDM no longer supports it. Please upgrade your Python to 3.6 or later.
+_______________________ test_default_repository_setting ________________________
+
+project = <Project '/tmp/pytest-of-rasdan/pytest-2/test_default_repository_settin0'>
+
+    def test_default_repository_setting(project):
+        repository = project.global_config.get_repository_config("pypi", "repository")
+        assert repository.url == "https://upload.pypi.org/legacy/"
+        assert repository.username is None
+>       assert repository.password is None
+E       AssertionError: assert 'bar' is None
+E        +  where 'bar' = RepositoryConfig(config_prefix='repository', name='pypi', url='https://upload.pypi.org/legacy/', username=None, verify_ssl=None, type=None, ca_certs=None, include_packages=[], exclude_packages=[]).password
+
+tests/cli/test_config.py:93: AssertionError
+---------------------------- Captured stdout setup -----------------------------
+Changes are written to pyproject.toml.
+------------------------------ Captured log call -------------------------------
+DEBUG    unearth.auth:auth.py:60 Getting credentials from keyring for url: pdm-repository-pypi
+___________________ test_hide_password_in_output_repository ____________________
+
+project = <Project '/tmp/pytest-of-rasdan/pytest-2/test_hide_password_in_output_r0'>
+pdm = <function pdm.<locals>.caller at 0x7f91e021a700>
+
+    def test_hide_password_in_output_repository(project, pdm):
+>       assert project.global_config["repository.pypi.password"] is None
+E       AssertionError: assert 'bar' is None
+
+tests/cli/test_config.py:132: AssertionError
+---------------------------- Captured stdout setup -----------------------------
+Changes are written to pyproject.toml.
+------------------------------ Captured log call -------------------------------
+DEBUG    unearth.auth:auth.py:60 Getting credentials from keyring for url: pdm-repository-pypi
+__________________________ test_config_get_repository __________________________
+
+project = <Project '/tmp/pytest-of-rasdan/pytest-2/test_config_get_repository0'>
+pdm = <function pdm.<locals>.caller at 0x7f91e16c3160>
+
+    def test_config_get_repository(project, pdm):
+        config = project.global_config["repository.pypi"]
+        assert config == project.global_config.get_repository_config("pypi", "repository")
+        assert project.global_config["repository.pypi.url"] == "https://upload.pypi.org/legacy/"
+    
+        result = pdm(["config", "repository.pypi"], obj=project, strict=True)
+>       assert result.stdout.strip() == "repository.pypi.url = https://upload.pypi.org/legacy/"
+E       AssertionError: assert 'repository.pypi.url = https://upload.pypi.org/legacy/\nrepository.pypi.password = <hidden>' == 'repository.pypi.url = https://upload.pypi.org/legacy/'
+E         - repository.pypi.url = https://upload.pypi.org/legacy/
+E         + repository.pypi.url = https://upload.pypi.org/legacy/
+E         ?                                                      +
+E         + repository.pypi.password = <hidden>
+
+tests/cli/test_config.py:162: AssertionError
+---------------------------- Captured stdout setup -----------------------------
+Changes are written to pyproject.toml.
+------------------------------ Captured log call -------------------------------
+DEBUG    unearth.auth:auth.py:60 Getting credentials from keyring for url: pdm-repository-pypi
+____________________________ test_info_command_json ____________________________
+
+project = <Project '/tmp/pytest-of-rasdan/pytest-2/test_info_command_json0'>
+pdm = <function pdm.<locals>.caller at 0x7f91e16220d0>
+
+    def test_info_command_json(project, pdm):
+        result = pdm(["info", "--json"], obj=project, strict=True)
+    
+>       data = json.loads(result.outputs)
+
+tests/cli/test_others.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/lib/python3.8/json/__init__.py:357: in loads
+    return _default_decoder.decode(s)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <json.decoder.JSONDecoder object at 0x7f91e4e58580>
+s = '{\n  "pdm": {\n    "version": "2.12.4.dev5+gddd26878.editable"\n  },\n  "python": {\n    "interpreter": "/home/rasdan..."\n  }\n}\nINFO: The saved Python interpreter doesn\'t match the project\'s requirement. Trying to find another one.\n'
+_w = <built-in method match of re.Pattern object at 0x7f91e4a32b70>
+
+    def decode(self, s, _w=WHITESPACE.match):
+        """Return the Python representation of ``s`` (a ``str`` instance
+        containing a JSON document).
+    
+        """
+        obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+        end = _w(s, end).end()
+        if end != len(s):
+>           raise JSONDecodeError("Extra data", s, end)
+E           json.decoder.JSONDecodeError: Extra data: line 27 column 1 (char 846)
+
+/usr/lib/python3.8/json/decoder.py:340: JSONDecodeError
+---------------------------- Captured stdout setup -----------------------------
+Changes are written to pyproject.toml.
+______________________ test_import_another_sitecustomize _______________________
+
+project = <Project '/tmp/pytest-of-rasdan/pytest-2/test_import_another_sitecustom0'>
+pdm = <function pdm.<locals>.caller at 0x7f91c3c358b0>
+capfd = <_pytest.capture.CaptureFixture object at 0x7f91d3fcdee0>
+
+    def test_import_another_sitecustomize(project, pdm, capfd):
+        project.pyproject.metadata["requires-python"] = ">=2.7"
+        project.pyproject.write()
+        # a script for checking another sitecustomize is imported
+        project.root.joinpath("foo.py").write_text("import os;print(os.getenv('FOO'))")
+        # ensure there have at least one sitecustomize can be imported
+        # there may have more than one sitecustomize.py in sys.path
+        project.root.joinpath("sitecustomize.py").write_text("import os;os.environ['FOO'] = 'foo'")
+        env = os.environ.copy()
+        paths = env.get("PYTHONPATH")
+        this_path = str(project.root)
+        new_paths = [this_path] if not paths else [this_path, paths]
+        env["PYTHONPATH"] = os.pathsep.join(new_paths)
+        project._environment = None
+        capfd.readouterr()
+        with cd(project.root):
+            result = pdm(["run", "python", "foo.py"], env=env)
+>       assert result.exit_code == 0, result.stderr
+E       AssertionError: [PdmUsageError]: Python 2.7 has reached EOL and PDM no longer supports it. Please upgrade your Python to 3.6 or later.
+E         
+E       assert 1 == 0
+E        +  where 1 = RunResult(exit_code=1, stdout='', stderr='[PdmUsageError]: Python 2.7 has reached EOL and PDM no longer supports it. Please upgrade your Python to 3.6 or later.\n', exception=None).exit_code
+
+tests/cli/test_run.py:566: AssertionError
+---------------------------- Captured stdout setup -----------------------------
+Changes are written to pyproject.toml.
+=============================== warnings summary ===============================
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@5.0.2 because it requires Python>=3.10 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@5.0.2, narrow down the `requires-python` range to include this version. For example, ">=3.10" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@5.0.1 because it requires Python>=3.10 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@5.0.1, narrow down the `requires-python` range to include this version. For example, ">=3.10" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@5.0 because it requires Python>=3.10 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@5.0, narrow down the `requires-python` range to include this version. For example, ">=3.10" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@4.2.10 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@4.2.10, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@4.2.9 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@4.2.9, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@4.2.8 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@4.2.8, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@4.2.7 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@4.2.7, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@4.2.6 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@4.2.6, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@4.2.5 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@4.2.5, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@4.2.4 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@4.2.4, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@4.2.3 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@4.2.3, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@4.2.2 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@4.2.2, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@4.2.1 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@4.2.1, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@4.2 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@4.2, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@4.1.13 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@4.1.13, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@4.1.12 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@4.1.12, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@4.1.11 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@4.1.11, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@4.1.10 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@4.1.10, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@4.1.9 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@4.1.9, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@4.1.8 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@4.1.8, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@4.1.7 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@4.1.7, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@4.1.6 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@4.1.6, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@4.1.5 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@4.1.5, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@4.1.4 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@4.1.4, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@4.1.3 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@4.1.3, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@4.1.2 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@4.1.2, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@4.1.1 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@4.1.1, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@4.1 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@4.1, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@4.0.10 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@4.0.10, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@4.0.9 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@4.0.9, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@4.0.8 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@4.0.8, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@4.0.7 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@4.0.7, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@4.0.6 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@4.0.6, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@4.0.5 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@4.0.5, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@4.0.4 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@4.0.4, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@4.0.3 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@4.0.3, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@4.0.2 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@4.0.2, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@4.0.1 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@4.0.1, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping django@4.0 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of django that supports Python>=3.7 will be used.
+  If you want to install django@4.0, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping typing-extensions@4.9.0 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of typing-extensions that supports Python>=3.7 will be used.
+  If you want to install typing-extensions@4.9.0, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+tests/test_integration.py::test_basic_integration[3.10]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping typing-extensions@4.8.0 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of typing-extensions that supports Python>=3.7 will be used.
+  If you want to install typing-extensions@4.8.0, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping importlib-metadata@7.0.1 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of importlib-metadata that supports Python>=3.7 will be used.
+  If you want to install importlib-metadata@7.0.1, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping importlib-metadata@7.0.0 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of importlib-metadata that supports Python>=3.7 will be used.
+  If you want to install importlib-metadata@7.0.0, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping importlib-metadata@6.11.0 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of importlib-metadata that supports Python>=3.7 will be used.
+  If you want to install importlib-metadata@6.11.0, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping importlib-metadata@6.10.0 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of importlib-metadata that supports Python>=3.7 will be used.
+  If you want to install importlib-metadata@6.10.0, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping importlib-metadata@6.9.0 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of importlib-metadata that supports Python>=3.7 will be used.
+  If you want to install importlib-metadata@6.9.0, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping importlib-metadata@6.8.0 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of importlib-metadata that supports Python>=3.7 will be used.
+  If you want to install importlib-metadata@6.8.0, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping zipp@3.17.0 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of zipp that supports Python>=3.7 will be used.
+  If you want to install zipp@3.17.0, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping zipp@3.16.2 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of zipp that supports Python>=3.7 will be used.
+  If you want to install zipp@3.16.2, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping zipp@3.16.1 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of zipp that supports Python>=3.7 will be used.
+  If you want to install zipp@3.16.1, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+tests/test_integration.py::test_basic_integration[3.8]
+  /home/rasdan/Documents/dd2480/pdm/src/pdm/resolver/providers.py:202: PackageWarning: Skipping zipp@3.16.0 because it requires Python>=3.8 but the project claims to work with Python>=3.7. Instead, another version of zipp that supports Python>=3.7 will be used.
+  If you want to install zipp@3.16.0, narrow down the `requires-python` range to include this version. For example, ">=3.8" should work.
+    return self.repository.find_candidates(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+
+---------- coverage: platform linux, python 3.8.10-final-0 -----------
+Name                                               Stmts   Miss Branch BrPart  Cover   Missing
+----------------------------------------------------------------------------------------------
+src/pdm/__main__.py                                    1      1      0      0     0%   1
+src/pdm/__version__.py                                 7      2      0      0    71%   7-8
+src/pdm/_types.py                                     69      3     32      6    91%   48->50, 70->72, 74->76, 77, 79, 81
+src/pdm/builders/__init__.py                           4      0      0      0   100%
+src/pdm/builders/base.py                             176      9     48     10    92%   94->96, 195-196, 200, 203, 228->230, 243, 259->261, 274-279, 285, 287
+src/pdm/builders/editable.py                          29      7      0      0    76%   26-28, 42-45
+src/pdm/builders/sdist.py                             11      0      0      0   100%
+src/pdm/builders/wheel.py                             17      0      0      0   100%
+src/pdm/cli/__init__.py                                0      0      0      0   100%
+src/pdm/cli/actions.py                               198     38     70      7    79%   54, 111-124, 165-167, 248-261, 272-277, 280, 292-309, 330, 333-335, 337
+src/pdm/cli/commands/__init__.py                       0      0      0      0   100%
+src/pdm/cli/commands/add.py                           73      5     35      4    92%   68, 114, 132-133, 151
+src/pdm/cli/commands/base.py                          39      2      6      1    93%   33-36
+src/pdm/cli/commands/build.py                         59      6     20      6    82%   41, 45-46, 49->51, 51->53, 56->61, 61->66, 109-111
+src/pdm/cli/commands/cache.py                        120     10     42     10    88%   28, 33, 49, 51, 53, 60, 66, 95, 97->93, 114, 127
+src/pdm/cli/commands/completion.py                    20      1      2      1    91%   31
+src/pdm/cli/commands/config.py                       105     25     42      6    68%   38-47, 50-56, 61-66, 91, 116, 120->131, 129, 139
+src/pdm/cli/commands/export.py                        43      1     12      1    96%   71
+src/pdm/cli/commands/fix/__init__.py                  55      5     26      4    89%   39, 47, 56, 70-71
+src/pdm/cli/commands/fix/fixers.py                    42      4      6      2    83%   50-53, 58->61
+src/pdm/cli/commands/import_cmd.py                    49     11     18      8    72%   63-67, 69, 74, 76, 81-83, 87->90, 91-93
+src/pdm/cli/commands/info.py                          35      1     15      1    96%   41
+src/pdm/cli/commands/init.py                         140     24     48      5    78%   39, 41, 48-61, 64-81, 102-107, 140, 163->166
+src/pdm/cli/commands/install.py                       49      2     18      3    93%   53, 61->64, 68
+src/pdm/cli/commands/list.py                         220     11    120      7    95%   149, 226, 228, 230, 284-290, 370, 386, 427
+src/pdm/cli/commands/lock.py                          26      0      4      0   100%
+src/pdm/cli/commands/publish/__init__.py             100     15     40      9    80%   92-97, 116, 122, 126-129, 131, 142, 144->146, 146->148, 151, 178-179, 184->189
+src/pdm/cli/commands/publish/package.py              133     26     43      9    79%   60-61, 64-65, 80, 85, 104-108, 116, 131, 141, 145, 153, 160-170, 218
+src/pdm/cli/commands/publish/repository.py           121     51     44      7    55%   34, 51, 53, 58-66, 69-101, 104-113, 116-119, 136, 181-182
+src/pdm/cli/commands/remove.py                        49      1     18      1    97%   92
+src/pdm/cli/commands/run.py                          276     10    110      7    95%   134, 138, 218-220, 256, 261->264, 301, 319, 409-410
+src/pdm/cli/commands/search.py                        50     12     16      4    70%   25, 33-36, 43-50, 66
+src/pdm/cli/commands/self_cmd.py                     153     43     35      4    68%   35-50, 71->75, 79, 96-97, 136-138, 160-183, 188-189, 191, 197-199, 244-249
+src/pdm/cli/commands/show.py                          50      4     19      3    90%   48-49, 55, 71
+src/pdm/cli/commands/sync.py                          15      0      0      0   100%
+src/pdm/cli/commands/update.py                        71      2     40      4    95%   135, 138->exit, 143, 188->exit
+src/pdm/cli/commands/use.py                           76      3     30      4    93%   57, 64, 67->71, 74
+src/pdm/cli/commands/venv/__init__.py                 33      4      4      1    81%   38-42
+src/pdm/cli/commands/venv/activate.py                 26      1      6      1    94%   40
+src/pdm/cli/commands/venv/backends.py                113      9     39      7    89%   32, 36->41, 42->41, 45-46, 77, 81-82, 90, 123, 180
+src/pdm/cli/commands/venv/create.py                   22      0      0      0   100%
+src/pdm/cli/commands/venv/list.py                     16      1      4      1    90%   20
+src/pdm/cli/commands/venv/purge.py                    36      0     22      2    97%   42->45, 56->55
+src/pdm/cli/commands/venv/remove.py                   22      1      4      2    88%   29->exit, 33
+src/pdm/cli/commands/venv/utils.py                    52      1     14      1    97%   46->43, 66
+src/pdm/cli/completions/__init__.py                    0      0      0      0   100%
+src/pdm/cli/filters.py                                73      3     36      3    94%   46, 58->60, 90-94
+src/pdm/cli/hooks.py                                  29      0      2      0   100%
+src/pdm/cli/options.py                               123      3     18      3    96%   57->59, 76, 108, 379
+src/pdm/cli/templates/__init__.py                    127     17     42      3    86%   58-59, 85, 89-90, 109->exit, 132-133, 154-164
+src/pdm/cli/templates/default/__init__.py              0      0      0      0   100%
+src/pdm/cli/templates/default/tests/__init__.py        0      0      0      0   100%
+src/pdm/cli/templates/minimal/__init__.py              0      0      0      0   100%
+src/pdm/cli/utils.py                                 434     73    241     20    82%   128, 218, 235->233, 251, 275->exit, 344-350, 358, 364, 378-384, 390, 411-413, 500, 535->539, 561->563, 630, 638-652, 656-708, 723->716, 761, 771-777, 793-794
+src/pdm/compat.py                                     26     10      8      4    59%   7, 17-25, 34, 40
+src/pdm/core.py                                      154      9     40      4    93%   95, 180, 190->exit, 192, 195-196, 260, 280-281, 288
+src/pdm/environments/__init__.py                      14      5      2      0    56%   12-16
+src/pdm/environments/base.py                         165     39     32      5    73%   72, 84, 118-119, 135->141, 138, 148->exit, 218->221, 227-240, 247-270, 280, 284
+src/pdm/environments/local.py                         81     41     28      2    44%   21-23, 27-41, 52-72, 98-100, 118-122
+src/pdm/environments/python.py                        43      6     12      1    84%   43-47, 55
+src/pdm/exceptions.py                                 46      2      0      0    96%   62-63
+src/pdm/formats/__init__.py                            5      0      0      0   100%
+src/pdm/formats/base.py                               76      0     22      0   100%
+src/pdm/formats/flit.py                               89     11     30     13    80%   52, 68, 78, 80, 83-89, 98, 109->111, 112, 114-115, 116->118, 118->120, 120->122, 122->126
+src/pdm/formats/pipfile.py                            47      2     22      6    88%   30, 37->40, 42, 56->58, 58->61, 61->63
+src/pdm/formats/poetry.py                            151     16     66      5    87%   37-38, 64, 71-72, 103, 137->exit, 138->135, 174-175, 186-191, 195-203
+src/pdm/formats/requirements.py                      166     20     84     15    84%   51, 68, 72, 74, 78-79, 86-87, 92, 114-115, 128, 142, 159->162, 163-173, 197, 205, 222
+src/pdm/formats/setup_py.py                           41      4     28     11    75%   33->35, 36, 37->39, 39->41, 41->43, 44, 47->49, 49->52, 53->55, 56, 58
+src/pdm/installers/__init__.py                         2      0      0      0   100%
+src/pdm/installers/core.py                             6      0      0      0   100%
+src/pdm/installers/installers.py                     175     18     64      9    86%   48, 75, 107-112, 123, 127, 142->exit, 234->244, 247, 306-313, 325-330
+src/pdm/installers/manager.py                         44      7      2      0    85%   49-52, 65-67
+src/pdm/installers/packages.py                        35      2      8      2    91%   29->38, 54-55
+src/pdm/installers/synchronizers.py                  304     42    116     14    85%   43, 46, 55, 67-68, 80-82, 147, 154-156, 191, 201-209, 233, 258-263, 265-267, 287-289, 294->exit, 308-314, 323->exit, 335-339, 345->exit, 383, 405, 437->450, 451->454
+src/pdm/installers/uninstallers.py                   208     32     90     14    83%   29, 87-92, 98, 107-108, 177->189, 203, 210, 220->exit, 243-251, 259, 264-265, 268-269, 276, 284-285, 299-300, 304, 306
+src/pdm/models/__init__.py                             0      0      0      0   100%
+src/pdm/models/auth.py                                62     11     22      2    80%   27, 39, 49-54, 57-63, 79-81
+src/pdm/models/backends.py                            89      9     28      6    85%   32, 62, 80, 83-85, 95, 99, 113
+src/pdm/models/caches.py                             216     23     50      5    89%   46-47, 70-74, 134-135, 156-158, 203->202, 249-251, 253-259, 261, 300, 310, 318-320
+src/pdm/models/candidates.py                         409     39    164     17    89%   59, 100-102, 109-113, 124, 204, 207, 211, 213, 357-366, 438, 447, 497->500, 519->524, 522-523, 538-540, 543-544, 561-563, 593-597, 662-664, 668, 672
+src/pdm/models/environment.py                          5      5      0      0     0%   1-12
+src/pdm/models/finder.py                              26      3      2      0    89%   18, 21, 24
+src/pdm/models/in_process/__init__.py                 44      2      2      0    96%   61-62
+src/pdm/models/in_process/get_abis.py                 55     55     26      0     0%   1-108
+src/pdm/models/in_process/parse_setup.py             128     25    100     41    68%   14, 18->21, 21->24, 25, 28, 31, 34, 37, 39->43, 43->46, 47, 50, 53, 58-60, 62->76, 65->68, 68->71, 71->76, 77, 82->88, 120->122, 123, 124->126, 128, 130, 132, 136, 138, 140, 142, 144->147, 147->153, 149->151, 153->exit, 157, 161->exit, 171->174, 175->198, 178-179, 198->204, 199->204, 201->199, 209
+src/pdm/models/in_process/pep508.py                   17     17      4      0     0%   1-23
+src/pdm/models/in_process/sysconfig_get_paths.py      32     13     12      2    52%   9, 15, 20, 24-28, 34-37, 40
+src/pdm/models/markers.py                             85     12     52      5    82%   29, 34, 70, 75, 82, 87-88, 94, 121-124
+src/pdm/models/project_info.py                        56      9     16      1    81%   60-69, 87
+src/pdm/models/python.py                              60      5      4      2    89%   40, 76, 82, 84-85
+src/pdm/models/reporter.py                            26      1      2      0    96%   33
+src/pdm/models/repositories.py                       352     70    164     26    75%   96-97, 101, 184-185, 240-250, 253-256, 303, 305, 312, 318->exit, 320, 334, 336, 346, 350-351, 359, 394-421, 427, 440, 452, 458-463, 494->496, 506, 552->exit, 558-565, 577-580, 581->exit, 584, 589
+src/pdm/models/requirements.py                       356     20    140     13    93%   127, 139, 163-169, 261->263, 264-270, 294, 303->305, 306, 332, 366->368, 391->exit, 464, 483, 489, 497-499
+src/pdm/models/search.py                              49      1     22      3    94%   49, 60->exit, 61->63
+src/pdm/models/session.py                             53     11      4      2    77%   27-38, 66
+src/pdm/models/setup.py                              287     70    174     27    69%   33, 75-79, 99, 117->120, 120->125, 129->137, 137->140, 167-182, 185-187, 191, 200, 205, 210-222, 238, 241-247, 256-260, 278, 281-287, 297, 299->295, 301-312, 328, 331-337, 346->352, 376->372, 378, 380->376, 382, 397, 400, 424
+src/pdm/models/specifiers.py                         306     42    167     23    83%   26, 50->57, 69-70, 75-77, 79, 95, 125->127, 127->109, 130, 173-179, 186, 221, 235, 291, 295, 316-318, 327-331, 340-343, 378, 387-390, 392-395, 399, 401, 405
+src/pdm/models/venv.py                                66     12     18      3    80%   20-24, 53-54, 60, 64->63, 79-83
+src/pdm/models/versions.py                           102      4     26      2    95%   113, 118, 143, 147
+src/pdm/models/working_set.py                         51     12     22      3    74%   22-34, 40-41, 66, 88
+src/pdm/pep582/__init__.py                             0      0      0      0   100%
+src/pdm/pep582/sitecustomize.py                       94     34     42     12    56%   10, 17-20, 27, 29->33, 35->33, 38-42, 46-55, 63->66, 66->exit, 94-99, 114, 120, 127->128, 129-139, 143
+src/pdm/project/__init__.py                            3      0      0      0   100%
+src/pdm/project/config.py                            215     17    112     10    87%   38, 61, 293, 309, 344, 348, 354, 375, 379, 394, 409-418, 444
+src/pdm/project/core.py                              413     16    157     23    93%   96->99, 170, 177->179, 222->229, 231->229, 247->246, 253, 311, 320, 388, 397->399, 406-407, 493, 515, 536-537, 595-597, 635, 637, 638->640, 641->657, 648->651, 651->656, 653->656, 657->659, 685
+src/pdm/project/lockfile.py                           85      4     30      4    93%   61, 63, 104, 106
+src/pdm/project/project_file.py                       59      0     16      1    99%   35->37
+src/pdm/project/toml_file.py                          29      0      2      0   100%
+src/pdm/pytest.py                                    317     16     50      8    93%   99->98, 103->exit, 107, 129-131, 163->169, 251, 279, 313, 343, 408, 417, 495, 522, 570-572, 649
+src/pdm/resolver/__init__.py                           2      0      0      0   100%
+src/pdm/resolver/core.py                              42      1     18      1    97%   56
+src/pdm/resolver/graph.py                             77      6     31      3    92%   23, 29, 43, 48, 81->exit, 83, 107
+src/pdm/resolver/providers.py                        227      4    112     10    96%   39->46, 137->143, 166, 194->202, 218->exit, 225, 259, 313, 336->338, 386->385
+src/pdm/resolver/python.py                            23      1      5      1    93%   41
+src/pdm/resolver/reporters.py                         48      0     16      1    98%   51->exit
+src/pdm/signals.py                                    18      0      0      0   100%
+src/pdm/termui.py                                    159     16     38      9    86%   46->48, 53->55, 87, 106-112, 123, 191->194, 207, 240-243, 248->255, 268, 289
+src/pdm/utils.py                                     295     36     94      9    87%   39-40, 50, 103, 148-150, 190, 207, 313-315, 402, 404-412, 423->426, 431-436, 456-457, 475, 486-491
+----------------------------------------------------------------------------------------------
+TOTAL                                              10703   1336   3989    558    84%
+
+=========================== short test summary info ============================
+SKIPPED [1] tests/test_utils.py:181: Windows test
+XFAIL tests/models/test_candidates.py::test_parse_abnormal_specifiers - packaging 22 no longer supports legacy specifiers
+FAILED tests/cli/test_build.py::test_build_with_no_isolation[False] - AssertionError: assert 1 == 0
+ +  where 1 = RunResult(exit_code=1, stdout='Building sdist...\n', stderr='See /tmp/pdm-build-tfzq3k6y.log for detailed debug log.\n[PdmUsageError]: Python 2.7 has reached EOL and PDM no longer supports it. Please upgrade your Python to 3.6 or later.\n', exception=None).exit_code
+ +  and   0 = int(False)
+FAILED tests/cli/test_config.py::test_default_repository_setting - AssertionError: assert 'bar' is None
+ +  where 'bar' = RepositoryConfig(config_prefix='repository', name='pypi', url='https://upload.pypi.org/legacy/', username=None, verify_ssl=None, type=None, ca_certs=None, include_packages=[], exclude_packages=[]).password
+FAILED tests/cli/test_config.py::test_hide_password_in_output_repository - AssertionError: assert 'bar' is None
+FAILED tests/cli/test_config.py::test_config_get_repository - AssertionError: assert 'repository.pypi.url = https://upload.pypi.org/legacy/\nrepository.pypi.password = <hidden>' == 'repository.pypi.url = https://upload.pypi.org/legacy/'
+  - repository.pypi.url = https://upload.pypi.org/legacy/
+  + repository.pypi.url = https://upload.pypi.org/legacy/
+  ?                                                      +
+  + repository.pypi.password = <hidden>
+FAILED tests/cli/test_others.py::test_info_command_json - json.decoder.JSONDecodeError: Extra data: line 27 column 1 (char 846)
+FAILED tests/cli/test_run.py::test_import_another_sitecustomize - AssertionError: [PdmUsageError]: Python 2.7 has reached EOL and PDM no longer supports it. Please upgrade your Python to 3.6 or later.
+  
+assert 1 == 0
+ +  where 1 = RunResult(exit_code=1, stdout='', stderr='[PdmUsageError]: Python 2.7 has reached EOL and PDM no longer supports it. Please upgrade your Python to 3.6 or later.\n', exception=None).exit_code
+= 6 failed, 824 passed, 1 skipped, 1 xfailed, 92 warnings in 184.77s (0:03:04) =
