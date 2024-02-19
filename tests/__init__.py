@@ -7,6 +7,7 @@ FIXTURES = Path(__file__).parent / "fixtures"
 covering = {}
 # example: The function 'export' has 24 branches 
 covering["export"] = [False for _ in range(24)]
+covering["get_hashes"] = [False for _ in range(16)]
 
 # This is called at the end, and pretty-prints the branch coverage 
 def count_covering():

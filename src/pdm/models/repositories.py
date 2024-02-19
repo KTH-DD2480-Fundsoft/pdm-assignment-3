@@ -328,14 +328,29 @@ class BaseRepository:
         """Get hashes of all possible installable candidates
         of a given package version.
         """
+        from tests import covering
+
         if (
             candidate.req.is_vcs or candidate.req.is_file_or_url and candidate.req.is_local_dir  # type: ignore[attr-defined]
         ):
+            covering["get_hashes"][0] = True
             return []
+        else:
+            covering["get_hashes"][1] = True
+
         if candidate.hashes:
+            covering["get_hashes"][2] = True
             return candidate.hashes
+        else:
+            covering["get_hashes"][3] = True
         req = candidate.req.as_pinned_version(candidate.version)
-        comes_from = candidate.link.comes_from if candidate.link else None
+        if candidate.link:
+            covering["get_hashes"][4] = True
+            comes_from = candidate.link.comes_from
+        else:
+            covering["get_hashes"][5] = True
+            comes_from = None
+        # comes_from = candidate.link.comes_from if candidate.link else None
         result: list[FileHash] = []
         logged = False
         respect_source_order = self.environment.project.pyproject.settings.get("resolution", {}).get(
@@ -343,23 +358,39 @@ class BaseRepository:
         )
         sources = self.get_filtered_sources(candidate.req)
         if req.is_named and respect_source_order and comes_from:
+            covering["get_hashes"][6] = True
             sources = [s for s in sources if comes_from.startswith(s.url)]
+        else:
+            covering["get_hashes"][7] = True
 
         with self.environment.get_finder(sources, self.ignore_compatibility) as finder:
+            covering["get_hashes"][8] = True
             if req.is_file_or_url:
+                covering["get_hashes"][9] = True
                 this_link = cast("Link", candidate.prepare(self.environment).link)
                 links: list[Link] = [this_link]
             else:  # the req must be a named requirement
+                covering["get_hashes"][10] = True
                 links = [package.link for package in finder.find_matches(req.as_line())]
                 if self.ignore_compatibility:
+                    covering["get_hashes"][11] = True
                     links = [link for link in links if self._is_python_match(link)]
+                else:
+                    covering["get_hashes"][12] = True
             for link in links:
+                covering["get_hashes"][13] = True
                 if not link or link.is_vcs or link.is_file and link.file_path.is_dir():
+                    covering["get_hashes"][14] = True
                     # The links found can still be a local directory or vcs, skippping it.
                     continue
+                else:
+                    covering["get_hashes"][15] = True
                 if not logged:
+                    covering["get_hashes"][16] = True
                     termui.logger.info("Fetching hashes for %s", candidate)
                     logged = True
+                else:
+                    covering["get_hashes"][17] = True
                 result.append(
                     {
                         "url": link.url_without_fragment,
