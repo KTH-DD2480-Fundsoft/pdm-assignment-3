@@ -114,57 +114,121 @@ class Command(BaseCommand):
         from pdm.models.specifiers import get_specifier
         from pdm.utils import normalize_name
 
-        hooks = hooks or HookManager(project)
+        from tests import covering 
+
+        if not hooks:
+            covering["do_update"][0] = True
+            hooks = HookManager(project) #hooks or HookManager(project)
+        else: 
+            covering["do_update"][1] = True
+
         check_project_file(project)
         if len(packages) > 0 and (top or len(selection.groups) > 1 or not selection.default):
+            covering["do_update"][2] = True
             raise PdmUsageError(
                 "packages argument can't be used together with multiple -G or " "--no-default or --top."
             )
+        else: 
+            covering["do_update"][3] = True
+
         all_dependencies = project.all_dependencies
         updated_deps: dict[str, dict[str, Requirement]] = defaultdict(dict)
         locked_groups = project.lockfile.groups
         if not packages:
+            covering["do_update"][4] = True
             if prerelease is not None:
+                covering["do_update"][5] = True
                 raise PdmUsageError("--prerelease/--stable must be used with packages given")
+            else: 
+                covering["do_update"][6] = True
+
             selection.validate()
             for group in selection:
+                covering["do_update"][7] = True
                 updated_deps[group] = all_dependencies[group]
         else:
+            covering["do_update"][8] = True
             group = selection.one()
             if locked_groups and group not in locked_groups:
+                covering["do_update"][9] = True
                 raise ProjectError(f"Requested group not in lockfile: {group}")
+            else: 
+                covering["do_update"][10] = True
             dependencies = all_dependencies[group]
             for name in packages:
-                matched_name = next(
-                    (k for k in dependencies if normalize_name(strip_extras(k)[0]) == normalize_name(name)),
-                    None,
-                )
+                covering["do_update"][11] = True
+                l = []
+                for k in dependencies:
+                    covering["do_update"][12] = True
+                    if normalize_name(strip_extras(k)[0]) == normalize_name(name):
+                        covering["do_update"][13] = True
+                        l.append(k)
+                    else: 
+                        covering["do_update"][14] = True
+                matched_name = next(iter(l),None)
+                #    (k for k in dependencies if normalize_name(strip_extras(k)[0]) == normalize_name(name)),
+                #    None,
+                #)
                 if not matched_name:
-                    raise ProjectError(
-                        f"[req]{name}[/] does not exist in [primary]{group}[/] "
-                        f"{'dev-' if selection.dev else ''}dependencies."
-                    )
+                    covering["do_update"][15] = True
+                    if selection.dev: 
+                        covering["do_update"][16] = True
+                        raise ProjectError(
+                            f"[req]{name}[/] does not exist in [primary]{group}[/] "
+                            f"dev-dependencies."
+                        )
+                    else: 
+                        covering["do_update"][17] = True
+                        raise ProjectError(
+                            f"[req]{name}[/] does not exist in [primary]{group}[/] "
+                            f"dependencies."
+                        )
+                else: 
+                    covering["do_update"][18] = True
                 dependencies[matched_name].prerelease = prerelease
                 updated_deps[group][matched_name] = dependencies[matched_name]
+            l = []
+            for v in chain.from_iterable(updated_deps.values()):
+                covering["do_update"][19] = True
+                l.append(f"[req]{v}[/]")
+
             project.core.ui.echo(
                 "Updating packages: {}.".format(
-                    ", ".join(f"[req]{v}[/]" for v in chain.from_iterable(updated_deps.values()))
+                    ", ".join(l) #f"[req]{v}[/]" for v in chain.from_iterable(updated_deps.values()))
                 )
             )
         if unconstrained:
+            covering["do_update"][20] = True
             for deps in updated_deps.values():
+                covering["do_update"][21] = True
                 for dep in deps.values():
+                    covering["do_update"][22] = True
                     dep.specifier = get_specifier("")
-        reqs = [
-            r
-            for g, deps in all_dependencies.items()
-            for r in deps.values()
-            if locked_groups is None or g in locked_groups
-        ]
+        else: 
+            covering["do_update"][23] = True
+        
+        reqs = [] 
+        for g, deps in all_dependencies.items():
+            covering["do_update"][24] = True
+            for r in deps.values():   
+                covering["do_update"][25] = True
+                if locked_groups is None or g in locked_groups:
+                    covering["do_update"][26] = True
+                    reqs.append(r)
+                else: 
+                    covering["do_update"][27] = True
+
+        #reqs = [
+        #    r
+        #    for g, deps in all_dependencies.items()
+        #    for r in deps.values()
+        #    if locked_groups is None or g in locked_groups
+        #]
         # Since dry run is always true in the locking,
         # we need to emit the hook manually with the real dry_run value
         hooks.try_emit("pre_lock", requirements=reqs, dry_run=dry_run)
         with hooks.skipping("pre_lock", "post_lock"):
+            covering["do_update"][28] = True
             resolved = do_lock(
                 project,
                 strategy,
@@ -176,25 +240,64 @@ class Command(BaseCommand):
             )
         hooks.try_emit("post_lock", resolution=resolved, dry_run=dry_run)
         for deps in updated_deps.values():
+            covering["do_update"][29] = True
             populate_requirement_names(deps)
         if unconstrained:
+            covering["do_update"][30] = True
             # Need to update version constraints
             save_version_specifiers(updated_deps, resolved, save)
+        else: 
+            covering["do_update"][31] = True
         if not dry_run:
+            covering["do_update"][32] = True
             if unconstrained:
+                covering["do_update"][33] = True
                 for group, deps in updated_deps.items():
-                    project.add_dependencies(deps, group, selection.dev or False)
+                    covering["do_update"][34] = True
+                    if selection.dev:
+                        covering["do_update"][35] = True
+                        b = True 
+                    else: 
+                        covering["do_update"][36] = True
+                        b = False 
+                    project.add_dependencies(deps, group, b)
+            else: 
+                covering["do_update"][37] = True
             project.write_lockfile(project.lockfile._data, False)
+        else: 
+            covering["do_update"][38] = True
         if sync or dry_run:
+            covering["do_update"][39] = True
+            requirements = []
+            for deps in updated_deps.values():
+                covering["do_update"][40] = True
+                for r in deps.values():
+                    covering["do_update"][41] = True
+                    requirements.append(r)
+            if top:
+                covering["do_update"][42] = True
+                tracked_names = list(chain.from_iterable(updated_deps.values()))
+            else: 
+                covering["do_update"][43] = True
+                tracked_names = None 
+            if no_self or "default" not in selection:
+                covering["do_update"][44] = True
+                b = True 
+            else:
+                covering["do_update"][45] = True
+                b = False 
             do_sync(
                 project,
                 selection=selection,
                 clean=False,
                 dry_run=dry_run,
-                requirements=[r for deps in updated_deps.values() for r in deps.values()],
-                tracked_names=list(chain.from_iterable(updated_deps.values())) if top else None,
+                requirements=requirements, #[r for deps in updated_deps.values() for r in deps.values()],
+                tracked_names=tracked_names, #list(chain.from_iterable(updated_deps.values())) if top else None,
                 no_editable=no_editable,
-                no_self=no_self or "default" not in selection,
+                no_self=b, #no_self or "default" not in selection,
                 fail_fast=fail_fast,
                 hooks=hooks,
             )
+        else: 
+            covering["do_update"][46] = True
+
