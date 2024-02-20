@@ -479,6 +479,7 @@ class Synchronizer(BaseSynchronizer):
                     word = "a"
                 else:
                     covering["synchronize"][17] = True
+                    word = "an editable"
 
                 live.console.print(f"Installing the project as {word} package...")
                 if self_key in self.working_set: #17
