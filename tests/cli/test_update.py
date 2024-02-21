@@ -255,3 +255,42 @@ def test_update_group_not_in_lockfile(project, working_set, pdm):
     result = pdm(["update", "--group", "extra"], obj=project)
     assert result.exit_code != 0
     assert "Requested groups not in lockfile: extra" in result.stderr
+
+####################### New Tests #######################
+'''
+These new tetsts aim to improve branch and path coverage for the functions in the `synchronizer` class. These tests slightly improve
+coverage for various subfunctions of the class which aim to resolve specific test conditions omitted by previous tests. Tests should benefit
+other files as well but this is however not tested.
+'''
+
+def test_update_package_lock(project, working_set, repository, pdm):
+    """
+    Test case checks that packages can be added to the project and repository and later updated to a newer version without affecting the 
+    project lock file.
+    """
+    pdm(["add", "pytz"], obj=project, strict=True)
+    repository.add_candidate("pytz", "2019.6")
+    pdm(["update", "--frozen-lockfile"], obj=project, strict=True)
+    assert working_set["pytz"].version == "2019.6"
+    project.lockfile.reload()
+    assert project.locked_repository.all_candidates["pytz"].version == "2019.3"
+
+
+def test_update_groups_and_lock(project, pdm, working_set):
+    """
+    Test case checks that packages can be added to a certain group and then be able to update that group without error. Asserts correct 
+    exit codes, that packages are in correct set and in the correct locked file.
+    """
+    project.add_dependencies({"urllib3": parse_requirement("urllib3")})
+    project.add_dependencies({"pytz": parse_requirement("pytz")}, to_group="tz")
+    project.add_dependencies({"requests": parse_requirement("pytz")}, to_group="tz")
+    pdm(["install", "-Gtz", "--no-default"], obj=project, strict=True)
+    result = pdm(["update", "--group", "tz"], obj=project)
+    assert result.exit_code != 0
+    assert "pytz" in working_set
+    assert "urllib3" not in working_set
+    assert project.lockfile.groups == ["tz"]
+    assert "pytz" in project.locked_repository.all_candidates
+    assert "urllib3" not in project.locked_repository.all_candidates
+
+####################### End Tests #######################
