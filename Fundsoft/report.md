@@ -176,6 +176,26 @@ Where is potential for improvement?
 
 ## Overall experience
 
-What are your main take-aways from this project? What did you learn?
+### What are your main take-aways from this project? What did you learn?
+One thing we all realised is how difficult working in open source projects 
+can be, as it takes a lot of time figuring out a code-base and getting used 
+to other peoples code-style and patterns. We really realised during this 
+assignment, working with `pdm`, how important documentation and comments 
+are. `pdm` is lacking in these areas, and their onboarding does not cover 
+all that we would like to know before we started working on the project.
+For example, how the tests are structured with fixtures and how the different 
+modules interact. We learnt how Githubs workflow, with forks, is designed. 
 
-Is there something special you want to mention here?
+A lot of us got some good insight into testing -- the idea of coverage 
+and that it is an actual measurement, that can be made quite easily with a 
+tool such as coverage or the builtin coverage in pytest, was new to a lot of
+us. We also got a good look on some practical examples of code coverage and 
+complexity, by analysing control flow and counting branches of -- in some 
+cases -- really complex functions.
+
+### Is there something special you want to mention here?
+
+We're happy with our choice of project, although we realised a bit into the 
+assignment that some aspects of pdm where a bit unclear. As a result, we 
+spent a lot of time just getting to know the code base -- more than we'd like.
+
