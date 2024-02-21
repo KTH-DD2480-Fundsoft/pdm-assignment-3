@@ -106,14 +106,18 @@ if "long_description" in metadata:
 ```
 This block changes the state of long_description and result. Move this to a function we need to pass the relevant variables as input to the function and retrieve them in a tuple as output. 
 
-#### suggested change: 
+Suggested replacement: 
 ```python
-def update_long_description_and_result(long_description: str, result: dict[str, Any], metadata: SectionProxy) -> (str, dict[str, Any]):
+result = update_result_if_long_description(result, metadata)
+```
+New function:
+```python
+def update_result_if_long_description(result, metadata):
     if "long_description" in metadata:
         long_description = metadata["long_description"].strip()
         if long_description.startswith("file:"):
             result["readme"] = long_description[5:].strip()
-    return (long_description, result)
+    return result
 ```
 
 ### lines 62-74
@@ -133,9 +137,13 @@ def update_long_description_and_result(long_description: str, result: dict[str, 
             )
 ```
 
-#### suggested change: 
+Suggested replacement:
 ```python
-def update_options_and_result(options: SectionProxy, result: dict[str, Any], setup_cfg: ConfigParser) -> (SectionProxy, dict[str, Any]):
+result = update_result_if_options(result, setup_cfg)
+```
+New function:
+```python
+def update_result_if_options(result, setup_cfg):
     if setup_cfg.has_section("options"):
         options = setup_cfg["options"]
 
@@ -149,11 +157,11 @@ def update_options_and_result(options: SectionProxy, result: dict[str, Any], set
             result["package_dir"] = dict(
                 [p.strip() for p in d.split("=", 1)] for d in options["package_dir"].strip().splitlines()
             )
-    return(options, result)
+    return result
 ```
 
 
-## Further refactoring
+## Further refactoring (if needed)
 
 ### lines 76-86
 ```python
@@ -169,10 +177,13 @@ def update_options_and_result(options: SectionProxy, result: dict[str, Any], set
             for entry_point, definitions in setup_cfg["options.entry_points"].items()
         }
 ```
-
-#### suggested change: 
+Suggested replacement: 
 ```python
-def update_result(result: dict[str, Any], setup_cfg: ConfigParser) -> dict[str, Any]:
+result = update_result(result, setup_cfg)
+```
+New function:
+```python
+def update_result(result, setup_cfg):
     if setup_cfg.has_section("options.extras_require"):
         result["extras_require"] = {
             feature: dependencies.strip().splitlines()
