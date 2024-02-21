@@ -140,107 +140,80 @@ class PySpecSet(SpecifierSet):
         from tests import covering
         sorted_excludes = sorted(excludes)
 
-        # Changed code to work with branch coverage tool
-        #wildcard_excludes = set()
         wildcard_excludes = {version[:-1] for version in sorted_excludes if version.is_wildcard}
-        # for version in sorted_excludes:
-        #     covering["_merge_bounds_and_excludes"][0] = True
-        #     if version.is_wildcard:
-        #         covering["_merge_bounds_and_excludes"][1] = True
-        #         wildcard_excludes.add(version[:-1])
-        #     else:
-        #         covering["_merge_bounds_and_excludes"][2] = True         
-
-        # Changed code to work with branch coverage tool
-        #sorted_excludes = []
         sorted_excludes = [
             version
             for version in sorted_excludes
             if version.is_wildcard or not any(version.startswith(wv) for wv in wildcard_excludes)
-        ]
-        # for version in sorted_excludes:
-        #     covering["_merge_bounds_and_excludes"][3] = True
-        #     starts_with_wv = False
-        #     for wv in wildcard_excludes:
-        #         covering["_merge_bounds_and_excludes"][4] = True
-        #         if version.startswith(wv):
-        #             covering["_merge_bounds_and_excludes"][5] = True
-        #             starts_with_wv = True 
-        #         else:
-        #             covering["_merge_bounds_and_excludes"][6] = True
-        #     if version.is_wildcard or starts_with_wv:
-        #         covering["_merge_bounds_and_excludes"][7] = True
-        #         sorted_excludes.append(version)
-        #     else:
-        #         covering["_merge_bounds_and_excludes"][8] = True         
+        ]       
 
         if lower == Version.MIN and upper == Version.MAX:
-            covering["_merge_bounds_and_excludes"][9] = True
+            covering["_merge_bounds_and_excludes"][0] = True
             # Nothing we can do here, it is a non-constraint.
             return lower, upper, sorted_excludes
         else:
-            covering["_merge_bounds_and_excludes"][10] = True
+            covering["_merge_bounds_and_excludes"][1] = True
 
 
         for version in list(sorted_excludes):  # from to low to high
-            covering["_merge_bounds_and_excludes"][11] = True
+            covering["_merge_bounds_and_excludes"][2] = True
             if version >= upper:
-                covering["_merge_bounds_and_excludes"][12] = True
+                covering["_merge_bounds_and_excludes"][3] = True
                 sorted_excludes[:] = []
                 break
             else:
-                covering["_merge_bounds_and_excludes"][13] = True
+                covering["_merge_bounds_and_excludes"][4] = True
 
             if version.is_wildcard:
-                covering["_merge_bounds_and_excludes"][14] = True
+                covering["_merge_bounds_and_excludes"][5] = True
                 valid_length = len(version._version) - 1
                 valid_version = version[:valid_length]
 
                 if valid_version < lower[:valid_length]:
-                    covering["_merge_bounds_and_excludes"][15] = True
+                    covering["_merge_bounds_and_excludes"][6] = True
                     # Useless excludes
                     sorted_excludes.remove(version)
                 elif lower.startswith(valid_version):
-                    covering["_merge_bounds_and_excludes"][16] = True
+                    covering["_merge_bounds_and_excludes"][7] = True
                     # The lower bound is excluded, e.g: >=3.7.3,!=3.7.*
                     # bump the lower version in the last common bit: >=3.8.0
                     lower = version.bump(-2)
                     sorted_excludes.remove(version)
                 else:
-                    covering["_merge_bounds_and_excludes"][17] = True
+                    covering["_merge_bounds_and_excludes"][8] = True
                     break
             else:
-                covering["_merge_bounds_and_excludes"][18] = True
+                covering["_merge_bounds_and_excludes"][9] = True
                 if version < lower:
-                    covering["_merge_bounds_and_excludes"][19] = True
+                    covering["_merge_bounds_and_excludes"][10] = True
                     sorted_excludes.remove(version)
                 elif version == lower:
-                    covering["_merge_bounds_and_excludes"][20] = True
+                    covering["_merge_bounds_and_excludes"][11] = True
                     lower = version.bump()
                     sorted_excludes.remove(version)
                 else:
-                    covering["_merge_bounds_and_excludes"][21] = True
+                    covering["_merge_bounds_and_excludes"][12] = True
                     break
         for version in reversed(sorted_excludes):  # from high to low
-            covering["_merge_bounds_and_excludes"][22] = True
+            covering["_merge_bounds_and_excludes"][13] = True
 
             if version >= upper:
-                covering["_merge_bounds_and_excludes"][23] = True
+                covering["_merge_bounds_and_excludes"][14] = True
                 sorted_excludes.remove(version)
                 continue
             else:
-                covering["_merge_bounds_and_excludes"][24] = True
+                covering["_merge_bounds_and_excludes"][15] = True
 
             if not version.is_wildcard:
-                covering["_merge_bounds_and_excludes"][25] = True
+                covering["_merge_bounds_and_excludes"][16] = True
                 break
             else:
-                covering["_merge_bounds_and_excludes"][26] = True
+                covering["_merge_bounds_and_excludes"][17] = True
             valid_length = len(version._version) - 1
             valid_version = version[:valid_length]
 
             if upper.startswith(valid_version) or version.bump(-2) == upper:
-                covering["_merge_bounds_and_excludes"][27] = True
+                covering["_merge_bounds_and_excludes"][18] = True
                 # Case 1: The upper bound is excluded, e.g: <3.7.3,!=3.7.*
                 # set the upper to the zero version: <3.7.0
                 # Case 2: The upper bound is adjacent to the excluded one,
@@ -249,7 +222,7 @@ class PySpecSet(SpecifierSet):
                 upper = valid_version.complete()
                 sorted_excludes.remove(version)
             else:
-                covering["_merge_bounds_and_excludes"][28] = True
+                covering["_merge_bounds_and_excludes"][19] = True
                 break
 
         return lower, upper, sorted_excludes

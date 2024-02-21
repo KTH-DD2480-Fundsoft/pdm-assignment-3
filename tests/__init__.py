@@ -8,7 +8,7 @@ covering = {}
 # example: The function 'export' has 24 branches 
 covering["export"] = [False for _ in range(24)]
 covering["synchronize"] = [False for _ in range(20)]
-covering["_merge_bounds_and_excludes"] = [False for _ in range(29)]
+covering["_merge_bounds_and_excludes"] = [False for _ in range(20)]
 covering["do_update"] = [False for _ in range(47)]
 
 # This is called at the end, and pretty-prints the branch coverage 
