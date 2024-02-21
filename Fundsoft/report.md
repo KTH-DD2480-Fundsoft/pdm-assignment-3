@@ -70,11 +70,27 @@ The documentation is not very clear about all the possible outcomes. The comment
 
 Plan for refactoring complex code:
 
+Every group member has written their refactoring plan in a markdown file located in the Fundsoft/Refactoring-plans folder. 
+[Refactoring-plans](https://github.com/KTH-DD2480-Fundsoft/pdm-assignment-3/tree/report/Fundsoft/Refactoring-plans)
+
 Estimated impact of refactoring (lower CC, but other drawbacks?).
+
+When it comes to refactoring we found that many of the functions could be re-written. Not necessarily shortened where we get rid of unnecessary conditional statements but more that independent blocks of code could be moved outside of the function so that they formed separate functions. Since we didn't want to damage the logic of the functions by trying to optimize the logic of the code we focused on splitting complex functions into several smaller and less complex functions that could be called on by each other. Some positive benefits of this entail shorter functions making them easier to read and understand. Another benefit could be that independent functions can be isolated into their own function and thus be able to be called upon by other functions. Some negative drawbacks of this would be that splitting up a function makes it necessary to read several other functions instead of just one function. If one splits up the function too much this could become overwhelming. 
+
 
 Carried out refactoring (optional, P+):
 
-git diff ...
+The implemented versions of the refactoring can be see on the branch feature/65/refactor. Url shortcuts are given below:
+
+[Victor - Refactoring P+](https://github.com/pdm-project/pdm/commit/16b835b7d853d707b6126a9d4641e7470aae0334)
+
+[Ludvig - Refactoring P+](https://github.com/pdm-project/pdm/commit/1a60ede32dd73e84ed31e6c7f991106b723f797b)
+
+[Rasmus - Refactoring P+](https://github.com/pdm-project/pdm/commit/f2e3836356304d89f490a3ca2f4f87d488bb29fe)
+
+[Sebastian - Refactoring P+]()
+
+[Dante - Refactoring P+]()
 
 ## Coverage
 
