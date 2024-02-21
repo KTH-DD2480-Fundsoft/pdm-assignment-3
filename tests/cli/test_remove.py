@@ -112,8 +112,18 @@ def test_remove_group_not_in_lockfile(project, pdm, mocker):
 These new tetsts aim to improve branch and path coverage for the functions in the `synchronizer` class. These tests slightly improve
 coverage for various subfunctions of the class which aim to resolve specific test conditions omitted by previous tests. Tests should benefit
 other files as well but this is however not tested.
+
+More specifically: 
+The synchronizer module is quite well tested but still lacks some exception handling along with tests for removing packages 
+from the pdm lock file. 
 '''
 
+'''
+When removing a package from the working set it should not affect the lock file of the virtual environment. 
+Thus this test checks the special branch in the remove distribution function where if the package is in the lock file it should
+only be removed from the working set dict not the lock file.
+
+'''
 def test_remove_package_lock(project, working_set, dev_option, pdm):
     """
     Test case checks if it is possible to remove a package with the lock setting. Adds several packages and removes one with
@@ -126,7 +136,11 @@ def test_remove_package_lock(project, working_set, dev_option, pdm):
     locked_candidates = project.locked_repository.all_candidates
     assert "requests" in locked_candidates
 
+'''
+When removing a non-existing package from a project it should result in an error code 1 from the try and except test when removing
+a package. Other tests test exit codes from other branches in the synchronize module but not this specific case with the lock file.
 
+'''
 @pytest.mark.usefixtures("repository")
 def test_remove_with_no_package_error(project, working_set, pdm):
     """

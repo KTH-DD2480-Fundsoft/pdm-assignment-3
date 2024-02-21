@@ -263,6 +263,11 @@ coverage for various subfunctions of the class which aim to resolve specific tes
 other files as well but this is however not tested.
 '''
 
+'''
+When updating a package in a project it should not automatically update the lockfile until this is 
+explicitly requested (package version in lockfile should remain). The working set is however updated (package version is updated). 
+This specific branch is tested below where the asserts check the version number.
+'''
 def test_update_package_lock(project, working_set, repository, pdm):
     """
     Test case checks that packages can be added to the project and repository and later updated to a newer version without affecting the 
@@ -275,7 +280,11 @@ def test_update_package_lock(project, working_set, repository, pdm):
     project.lockfile.reload()
     assert project.locked_repository.all_candidates["pytz"].version == "2019.3"
 
+'''
+When updating a group of dependencies the try except block should return a non-zero exit code along with keeping the packages
+in the lockfile. Packages that don't belong to that group and are not installed should not be updated.
 
+'''
 def test_update_groups_and_lock(project, pdm, working_set):
     """
     Test case checks that packages can be added to a certain group and then be able to update that group without error. Asserts correct 
