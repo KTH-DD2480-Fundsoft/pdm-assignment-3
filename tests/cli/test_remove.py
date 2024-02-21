@@ -106,3 +106,56 @@ def test_remove_group_not_in_lockfile(project, pdm, mocker):
     pdm(["remove", "--group", "tz", "pytz"], obj=project, strict=True)
     assert not project.pyproject.metadata["optional-dependencies"].get("tz")
     locker.assert_not_called()
+
+####################### New Tests #######################
+'''
+These new tetsts aim to improve branch and path coverage for the functions in the `synchronizer` class. These tests slightly improve
+coverage for various subfunctions of the class which aim to resolve specific test conditions omitted by previous tests. Tests should benefit
+other files as well but this is however not tested.
+
+More specifically: 
+The synchronizer module is quite well tested but still lacks some exception handling along with tests for removing packages 
+from the pdm lock file. 
+'''
+
+'''
+When removing a package from the working set it should not affect the lock file of the virtual environment. 
+Thus this test checks the special branch in the remove distribution function where if the package is in the lock file it should
+only be removed from the working set dict not the lock file.
+
+'''
+def test_remove_package_lock(project, working_set, dev_option, pdm):
+    """
+    Test case checks if it is possible to remove a package with the lock setting. Adds several packages and removes one with
+    the frozen-lockfile setting. Checks that the package is still in lock file. 
+    """
+    pdm(["add", *dev_option, "requests", "requests"], obj=project, strict=True)
+    pdm(["remove", *dev_option, "--frozen-lockfile", "requests"], obj=project, strict=True)
+    assert "requests" not in working_set
+    project.lockfile.reload()
+    locked_candidates = project.locked_repository.all_candidates
+    assert "requests" in locked_candidates
+
+'''
+When removing a non-existing package from a project it should result in an error code 1 from the try and except test when removing
+a package. Other tests test exit codes from other branches in the synchronize module but not this specific case with the lock file.
+
+'''
+@pytest.mark.usefixtures("repository")
+def test_remove_with_no_package_error(project, working_set, pdm):
+    """
+    Test checks that "remove" functionality is working with correct error and exit codes. Adds several packages, asserts that they're in 
+    the correct folder, attempts to remove non-existing package as well as pop remove another package. Asserts that the exit.codes are 
+    correct
+    """
+    pdm(["add", "pytz"], obj=project, strict=True)
+    pdm(["add", "requests"], obj=project, strict=True)
+    assert "pytz" in working_set
+    assert "requests" in working_set
+    assert "django" not in working_set
+    result = pdm(["remove", "django"], obj=project)
+    assert result.exit_code == 1
+    result = pdm(["remove"], obj=project)
+    assert result.exit_code != 0
+
+####################### End Tests #######################
