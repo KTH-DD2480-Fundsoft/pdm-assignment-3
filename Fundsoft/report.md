@@ -14,20 +14,15 @@ A package manager for python projects.
 
 ## Onboarding experience
 
-Did it build and run as documented?
-    
-See the assignment for details; if everything works out of the box,
-there is no need to write much here. If the first project(s) you picked
-ended up being unsuitable, you can describe the "onboarding experience"
-for each project, along with reason(s) why you changed to a different one.
-
 PDM was the first project we picked.
 
 The project has a good CONTRIBUTING.md, where clear instructions are given
 on how to organize ones contribution. The project recomends using it's own 
-product (PDM) to ensure formatting and linting. Changes are documented using 
-`news` fragments. 
-
+product (PDM) to ensure formatting and linting and to document changes in 
+a specific `news` directory. There is nothing wrong with the CONTRIBUTING 
+file, but there is a lack of documentation of certain modules and the code 
+in general. The instructions and documentation for running and using the 
+product are very good and the product works as intended. 
 
 ## Complexity
 
