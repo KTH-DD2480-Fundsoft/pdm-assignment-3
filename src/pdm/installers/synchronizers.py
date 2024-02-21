@@ -382,11 +382,44 @@ class Synchronizer(BaseSynchronizer):
         else:
             self.ui.echo("All packages are synced to date, nothing to do.")
 
+    def catalogue_packages(self, to_do):
+        sequential_jobs = []
+        parallel_jobs = []
+
+        for kind in to_do: 
+            for key in to_do[kind]: 
+                if key in self.SEQUENTIAL_PACKAGES: 
+                    sequential_jobs.append((kind, key)) 
+                elif key in self.candidates and self.candidates[key].req.editable: 
+                    # Editable packages are installed sequentially.
+                    sequential_jobs.append((kind, key))
+                else:
+                    parallel_jobs.append((kind, key))
+        return sequential_jobs, parallel_jobs
+    
+    def install(self, state, live, progress):
+        if state.errors: 
+                if self.ui.verbosity < termui.Verbosity.DETAIL: 
+                    live.console.print("\n[error]ERRORS[/]:")
+                    live.console.print("".join(state.errors), end="")
+                raise InstallationError("Some package operations are not complete yet")
+        
+        if self.install_self:
+                self_key = self.self_key
+                assert self_key 
+                self.candidates[self_key] = self.self_candidate
+                word = "a" if self.no_editable else "an editable" 
+                live.console.print(f"Installing the project as {word} package...")
+                if self_key in self.working_set: 
+                    self.update_candidate(self_key, progress)
+                else:
+                    self.install_candidate(self_key, progress)
+
     def synchronize(self) -> None:
         to_add, to_update, to_remove = self.compare_with_working_set()
         to_do = {"remove": to_remove, "update": to_update, "add": to_add}
 
-        if self.dry_run:
+        if self.dry_run: 
             self._show_summary(to_do)
             return
 
@@ -396,35 +429,25 @@ class Synchronizer(BaseSynchronizer):
             "update": self.update_candidate,
             "remove": self.remove_distribution,
         }
-        sequential_jobs = []
-        parallel_jobs = []
-
-        for kind in to_do:
-            for key in to_do[kind]:
-                if key in self.SEQUENTIAL_PACKAGES:
-                    sequential_jobs.append((kind, key))
-                elif key in self.candidates and self.candidates[key].req.editable:
-                    # Editable packages are installed sequentially.
-                    sequential_jobs.append((kind, key))
-                else:
-                    parallel_jobs.append((kind, key))
+        
+        sequential_jobs, parallel_jobs = self.catalogue_packages(to_do)
 
         state = SimpleNamespace(errors=[], failed_jobs=[], jobs=[], mark_failed=False)
 
         def update_progress(future: Future | DummyFuture, kind: str, key: str) -> None:
             error = future.exception()
-            if error:
+            if error: 
                 exc_info = (type(error), error, error.__traceback__)
                 termui.logger.exception("Error occurs: ", exc_info=exc_info)
                 state.failed_jobs.append((kind, key))
                 state.errors.extend([f"{kind} [success]{key}[/] failed:\n", *traceback.format_exception(*exc_info)])
-                if self.fail_fast:
-                    for future in state.jobs:
+                if self.fail_fast: 
+                    for future in state.jobs: 
                         future.cancel()
                     state.mark_failed = True
 
         # get rich progress and live handler to deal with multiple spinners
-        with self.ui.make_progress(
+        with self.ui.make_progress( 
             " ",
             SpinnerColumn(termui.SPINNER, speed=1, style="primary"),
             "{task.description}",
@@ -432,36 +455,23 @@ class Synchronizer(BaseSynchronizer):
             TaskProgressColumn("[info]{task.percentage:>3.0f}%[/]"),
         ) as progress:
             live = progress.live
-            for kind, key in sequential_jobs:
+            for kind, key in sequential_jobs: 
                 handlers[kind](key, progress)
-            for i in range(self.retry_times + 1):
+            for i in range(self.retry_times + 1): 
                 state.jobs.clear()
                 with self.create_executor() as executor:
-                    for kind, key in parallel_jobs:
+                    for kind, key in parallel_jobs: 
                         future = executor.submit(handlers[kind], key, progress)
                         future.add_done_callback(functools.partial(update_progress, kind=kind, key=key))
                         state.jobs.append(future)
-                if state.mark_failed or not state.failed_jobs or i == self.retry_times:
+                if state.mark_failed or not state.failed_jobs or i == self.retry_times: 
                     break
                 parallel_jobs, state.failed_jobs = state.failed_jobs, []
                 state.errors.clear()
                 live.console.print("Retry failed jobs")
 
-            if state.errors:
-                if self.ui.verbosity < termui.Verbosity.DETAIL:
-                    live.console.print("\n[error]ERRORS[/]:")
-                    live.console.print("".join(state.errors), end="")
-                raise InstallationError("Some package operations are not complete yet")
-
-            if self.install_self:
-                self_key = self.self_key
-                assert self_key
-                self.candidates[self_key] = self.self_candidate
-                word = "a" if self.no_editable else "an editable"
-                live.console.print(f"Installing the project as {word} package...")
-                if self_key in self.working_set:
-                    self.update_candidate(self_key, progress)
-                else:
-                    self.install_candidate(self_key, progress)
+            self.install(state, live, progress)
 
             live.console.print(f"\n{termui.Emoji.POPPER} All complete!")
+
+    
