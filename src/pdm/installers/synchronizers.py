@@ -267,7 +267,7 @@ class BaseSynchronizer:
             manager.uninstall(dist)
         termui.logger.info("Synchronization complete.")
 
-
+from tests import covering
 class Synchronizer(BaseSynchronizer):
     def create_executor(
         self,
@@ -386,7 +386,8 @@ class Synchronizer(BaseSynchronizer):
         to_add, to_update, to_remove = self.compare_with_working_set()
         to_do = {"remove": to_remove, "update": to_update, "add": to_add}
 
-        if self.dry_run:
+        if self.dry_run: #1
+            covering["synchronize"][0] = True
             self._show_summary(to_do)
             return
 
@@ -399,69 +400,96 @@ class Synchronizer(BaseSynchronizer):
         sequential_jobs = []
         parallel_jobs = []
 
-        for kind in to_do:
-            for key in to_do[kind]:
-                if key in self.SEQUENTIAL_PACKAGES:
-                    sequential_jobs.append((kind, key))
-                elif key in self.candidates and self.candidates[key].req.editable:
+        for kind in to_do: #2
+            covering["synchronize"][1] = True
+            for key in to_do[kind]: #3 # Missing branch coverage according to coverage.txt
+                covering["synchronize"][2] = True
+                if key in self.SEQUENTIAL_PACKAGES: #4
+                    covering["synchronize"][3] = True # False in coverage test
+                    sequential_jobs.append((kind, key)) 
+                elif key in self.candidates and self.candidates[key].req.editable: #5
+                    covering["synchronize"][4] = True
                     # Editable packages are installed sequentially.
                     sequential_jobs.append((kind, key))
                 else:
+                    covering["synchronize"][5] = True
                     parallel_jobs.append((kind, key))
 
         state = SimpleNamespace(errors=[], failed_jobs=[], jobs=[], mark_failed=False)
 
         def update_progress(future: Future | DummyFuture, kind: str, key: str) -> None:
             error = future.exception()
-            if error:
+            if error: #6
+                covering["synchronize"][6] = True
                 exc_info = (type(error), error, error.__traceback__)
                 termui.logger.exception("Error occurs: ", exc_info=exc_info)
                 state.failed_jobs.append((kind, key))
                 state.errors.extend([f"{kind} [success]{key}[/] failed:\n", *traceback.format_exception(*exc_info)])
-                if self.fail_fast:
-                    for future in state.jobs:
+                if self.fail_fast: #7
+                    covering["synchronize"][7] = True
+                    for future in state.jobs: #8
+                        covering["synchronize"][8] = True
                         future.cancel()
                     state.mark_failed = True
 
         # get rich progress and live handler to deal with multiple spinners
-        with self.ui.make_progress(
-            " ",
+        with self.ui.make_progress( #18 with exception branches
+            " ",                                                        #Missing branch coverage lines 437-450 according to coverage.txt
             SpinnerColumn(termui.SPINNER, speed=1, style="primary"),
             "{task.description}",
             "[info]{task.fields[text]}",
             TaskProgressColumn("[info]{task.percentage:>3.0f}%[/]"),
         ) as progress:
             live = progress.live
-            for kind, key in sequential_jobs:
+            for kind, key in sequential_jobs: #9
+                covering["synchronize"][9] = True
                 handlers[kind](key, progress)
-            for i in range(self.retry_times + 1):
+            for i in range(self.retry_times + 1): #10
+                covering["synchronize"][10] = True
                 state.jobs.clear()
-                with self.create_executor() as executor:
-                    for kind, key in parallel_jobs:
+                with self.create_executor() as executor: #19 with exception branches
+                    for kind, key in parallel_jobs: #11 Missing branch coverage lines 451-454 according to coverage.txt
+                        covering["synchronize"][11] = True
                         future = executor.submit(handlers[kind], key, progress)
                         future.add_done_callback(functools.partial(update_progress, kind=kind, key=key))
                         state.jobs.append(future)
-                if state.mark_failed or not state.failed_jobs or i == self.retry_times:
+                if state.mark_failed or not state.failed_jobs or i == self.retry_times: #12
+                    covering["synchronize"][12] = True
                     break
                 parallel_jobs, state.failed_jobs = state.failed_jobs, []
                 state.errors.clear()
                 live.console.print("Retry failed jobs")
 
-            if state.errors:
-                if self.ui.verbosity < termui.Verbosity.DETAIL:
+            if state.errors: #13
+                covering["synchronize"][13] = True
+                if self.ui.verbosity < termui.Verbosity.DETAIL: #14
+                    covering["synchronize"][14] = True
                     live.console.print("\n[error]ERRORS[/]:")
                     live.console.print("".join(state.errors), end="")
                 raise InstallationError("Some package operations are not complete yet")
 
-            if self.install_self:
+            if self.install_self: #15
+                covering["synchronize"][15] = True
                 self_key = self.self_key
-                assert self_key
+                assert self_key #20 with exception branches
                 self.candidates[self_key] = self.self_candidate
-                word = "a" if self.no_editable else "an editable"
+                #word = "a" if self.no_editable else "an editable" #16
+                if self.no_editable:
+                    covering["synchronize"][16] = True
+                    word = "a"
+                else:
+                    covering["synchronize"][17] = True
+                    word = "an editable"
+
                 live.console.print(f"Installing the project as {word} package...")
-                if self_key in self.working_set:
+                if self_key in self.working_set: #17
+                    covering["synchronize"][18] = True # False in coverage test
                     self.update_candidate(self_key, progress)
                 else:
+                    covering["synchronize"][19] = True
                     self.install_candidate(self_key, progress)
 
             live.console.print(f"\n{termui.Emoji.POPPER} All complete!")
+
+# 17 decisions in this block of code. 17+1=18=Cyclomatic complexity of the function. Same as lizard. 
+# 20 decisions in ths block of code if we account for with and asserts that result in exception branches => 20+1=21
