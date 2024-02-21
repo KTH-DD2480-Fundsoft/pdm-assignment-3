@@ -3,6 +3,49 @@ import sys
 from typing import Any, Dict
 
 
+
+# helper functions for reducing cyclomatic complexity in _parse_setup_cfg
+#########################################################################
+def update_result_if_options(result, setup_cfg):
+    if setup_cfg.has_section("options"):
+        options = setup_cfg["options"]
+
+        if "python_requires" in options:
+            result["python_requires"] = options["python_requires"]
+
+        if "install_requires" in options:
+            result["install_requires"] = options["install_requires"].strip().splitlines()
+
+        if "package_dir" in options:
+            result["package_dir"] = dict(
+                [p.strip() for p in d.split("=", 1)] for d in options["package_dir"].strip().splitlines()
+            )
+    return result
+
+def update_result_if_long_description(result, metadata):
+    if "long_description" in metadata:
+        long_description = metadata["long_description"].strip()
+        if long_description.startswith("file:"):
+            result["readme"] = long_description[5:].strip()
+    return result
+
+def update_result(result, setup_cfg):
+    if setup_cfg.has_section("options.extras_require"):
+        result["extras_require"] = {
+            feature: dependencies.strip().splitlines()
+            for feature, dependencies in setup_cfg["options.extras_require"].items()
+        }
+
+    if setup_cfg.has_section("options.entry_points"):
+        result["entry_points"] = {
+            entry_point: definitions.strip().splitlines()
+            for entry_point, definitions in setup_cfg["options.entry_points"].items()
+        }
+    return result
+#########################################################################
+
+
+
 def _parse_setup_cfg(path: str) -> Dict[str, Any]:
     import configparser
 
@@ -54,36 +97,11 @@ def _parse_setup_cfg(path: str) -> Dict[str, Any]:
             [u.strip() for u in url.split("=", 1)] for url in metadata["project_urls"].strip().splitlines()
         )
 
-    if "long_description" in metadata:
-        long_description = metadata["long_description"].strip()
-        if long_description.startswith("file:"):
-            result["readme"] = long_description[5:].strip()
+    result = update_result_if_long_description(result, metadata) # Refactoring
 
-    if setup_cfg.has_section("options"):
-        options = setup_cfg["options"]
+    result = update_result_if_options(result, setup_cfg) # Refactoring
 
-        if "python_requires" in options:
-            result["python_requires"] = options["python_requires"]
-
-        if "install_requires" in options:
-            result["install_requires"] = options["install_requires"].strip().splitlines()
-
-        if "package_dir" in options:
-            result["package_dir"] = dict(
-                [p.strip() for p in d.split("=", 1)] for d in options["package_dir"].strip().splitlines()
-            )
-
-    if setup_cfg.has_section("options.extras_require"):
-        result["extras_require"] = {
-            feature: dependencies.strip().splitlines()
-            for feature, dependencies in setup_cfg["options.extras_require"].items()
-        }
-
-    if setup_cfg.has_section("options.entry_points"):
-        result["entry_points"] = {
-            entry_point: definitions.strip().splitlines()
-            for entry_point, definitions in setup_cfg["options.entry_points"].items()
-        }
+    result = update_result(result, setup_cfg) # Refactoring
 
     return result
 
