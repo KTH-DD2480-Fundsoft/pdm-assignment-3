@@ -141,32 +141,38 @@ class PySpecSet(SpecifierSet):
         sorted_excludes = sorted(excludes)
 
         # Changed code to work with branch coverage tool
-        wildcard_excludes = set()
-        for version in sorted_excludes:
-            covering["_merge_bounds_and_excludes"][0] = True
-            if version.is_wildcard:
-                covering["_merge_bounds_and_excludes"][1] = True
-                wildcard_excludes.add(version[:-1])
-            else:
-                covering["_merge_bounds_and_excludes"][2] = True         
+        #wildcard_excludes = set()
+        wildcard_excludes = {version[:-1] for version in sorted_excludes if version.is_wildcard}
+        # for version in sorted_excludes:
+        #     covering["_merge_bounds_and_excludes"][0] = True
+        #     if version.is_wildcard:
+        #         covering["_merge_bounds_and_excludes"][1] = True
+        #         wildcard_excludes.add(version[:-1])
+        #     else:
+        #         covering["_merge_bounds_and_excludes"][2] = True         
 
         # Changed code to work with branch coverage tool
-        sorted_excludes = []
-        for version in sorted_excludes:
-            covering["_merge_bounds_and_excludes"][3] = True
-            starts_with_wv = False
-            for wv in wildcard_excludes:
-                covering["_merge_bounds_and_excludes"][4] = True
-                if version.startswith(wv):
-                    covering["_merge_bounds_and_excludes"][5] = True
-                    starts_with_wv = True 
-                else:
-                    covering["_merge_bounds_and_excludes"][6] = True
-            if version.is_wildcard or starts_with_wv:
-                covering["_merge_bounds_and_excludes"][7] = True
-                sorted_excludes.append(version)
-            else:
-                covering["_merge_bounds_and_excludes"][8] = True         
+        #sorted_excludes = []
+        sorted_excludes = [
+            version
+            for version in sorted_excludes
+            if version.is_wildcard or not any(version.startswith(wv) for wv in wildcard_excludes)
+        ]
+        # for version in sorted_excludes:
+        #     covering["_merge_bounds_and_excludes"][3] = True
+        #     starts_with_wv = False
+        #     for wv in wildcard_excludes:
+        #         covering["_merge_bounds_and_excludes"][4] = True
+        #         if version.startswith(wv):
+        #             covering["_merge_bounds_and_excludes"][5] = True
+        #             starts_with_wv = True 
+        #         else:
+        #             covering["_merge_bounds_and_excludes"][6] = True
+        #     if version.is_wildcard or starts_with_wv:
+        #         covering["_merge_bounds_and_excludes"][7] = True
+        #         sorted_excludes.append(version)
+        #     else:
+        #         covering["_merge_bounds_and_excludes"][8] = True         
 
         if lower == Version.MIN and upper == Version.MAX:
             covering["_merge_bounds_and_excludes"][9] = True
