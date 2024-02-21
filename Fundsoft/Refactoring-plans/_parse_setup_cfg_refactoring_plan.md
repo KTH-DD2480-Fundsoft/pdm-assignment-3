@@ -199,4 +199,8 @@ def update_result(result, setup_cfg):
 ```
 
 ## Results and refactoring evaluation
-to-do
+Implementation of `update_result_if_long_description` and `update_result_if_options` results in `pdm test` that passes all tests and a CCN of 21 according to lizard.
+Additional implementation of the function `update_result` results in successfull `pdm test`run and a CCN of 17 wich is a satisfactory result. 
+
+### Result: 
+CCN = 17 for _parse_setup_cfg which is a CCN reduction of 40%, all tests still pass
