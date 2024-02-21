@@ -124,6 +124,13 @@ def test_pyspec_isnot_subset_superset(left, right):
     assert not left.is_subset(right), f"{left}, {right}"
     assert not left.is_superset(right), f"{left}, {right}"
 
+'''
+The test requirements do not include versions outside of bounds [lower, upper], 
+some normalization of operator specifiers, invalid operation specifiers, 
+invalid PySpecSet parameters, tests for is_allow_all(), or tests for the 
+__eq__ operator. 
+'''
+
 def test_pyspec_removal_non_valid_versions():
     '''
     Check that _merge_bounds_and_excludes removes versions outside of the bound
