@@ -261,7 +261,7 @@ Report of old coverage: [link to the old coverage](https://github.com/KTH-DD2480
 |pdm/models/markers.py| 82% |_build_pyspec_from_marker
 
 
-Report of new coverage: [link]
+Report of new coverage: [link to the new coverage](https://github.com/KTH-DD2480-Fundsoft/pdm-assignment-3/blob/b637fce8f1123b71cd14dd731667c18fb1d3e408/src/pdm/models/coverage.txt)
 
 | File | Coverage | Function |
 | ---------| ---------|------|
