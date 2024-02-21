@@ -95,13 +95,26 @@ Number of test cases added: two per team member (P) or at least four (P+).
 
 ## Self-assessment: Way of working
 
-Current state according to the Essence standard: ...
+**Current state according to the Essence standard:** 
 
-Was the self-assessment unanimous? Any doubts about certain items?
+We are currently in the "In place" state of the Essence heirarchy. In the last assignment we also said that we were in the "In place" state. The reason for this is simply that we felt that assignment 3 went very well but without any major changes to our way of working. We kept using the well functioning routines and methods of working to the same functioning standard as before. We feel that our way of working works very well where we are able to disect a problem into smaller issues which everyone can work on independently. We also felt that this assignment was slightly more individualistic where each member was able to pursue their own tasks without being relient on another members code. Thus all group members continue to work within the same workflow autonomously. This frees up time and effort to solely focus on the issues and on solving the assignment. With regard to this some ideas as to improve the workflow are still being made even if these constitute minor changes addressing minor inefficiencies. An example of this being how we approve and squash merge pull requests. Team wise we'd say that we are currently in the "performing" phase where all team members are working comfortably together as a unit and being able to solve problems in an efficient manner. In order to further improve and achieve the next step "Working well"  when it comes to workflow we need to continue with what we're doing (in order to maintain our workflow) and focus on evaluating each assignment with constructive feedback to address issues and actively work on maintaining the effective workflow and feedback that we've built. We're looking forward to assignment 4! 
 
-How have you improved so far?
+**Was the self-assessment unanimous? Any doubts about certain items?**
 
-Where is potential for improvement?
+The self-assessment was unanimous as all team members feel that we are improving as a group with each assignment where we have good communication with each other in order to solve problems and discuss ideas.
+
+**How have you improved so far?**
+
+Our group has improved a lot compared to the beginning of the course. We've become a cohesive group where everyone takes initiative to tackle problems and discuss differnet methods of solving them. We're very open in our communication and feedback which has only improved the more we've worked together and gotten to know each other. Practically we've become a lot better at using GitHub in a larger group project with handling branches, merges as well as simply dissecting the assigned problems into smaller atomic issues. Compared to the beginning we've greatly improved our workflow when it comes to making Pull Requests, commenting and approving PRs along with handling and merging branches correctly. 
+
+**Where is potential for improvement?**
+
+There are always ways to improve and one should always be open to how we can improve, both individually and as a group. Some concrete improvements we can make are:
+
+* We can become more articulate in the the beginning of each project with how we want to structure the project (how we'll use branches etc.). We were very good at doing this for the CI project (assignment 2) but in assignment 3 it was slightly unclear how we were going to use branches and later merge them all together. 
+* We can definetly aim to include our own deadlines where we try to complete an assignment/parts of assignments to certain dates in order to have some extra time to go over everything and double check things. We have tried to do this before with some success. It is however quite difficult to do as the assignments are very new where it is very difficult to judge how long different tasks will take. 
+* We can attempt to be even more articulate in our commit and PR messages.
+
 
 ## Overall experience
 
