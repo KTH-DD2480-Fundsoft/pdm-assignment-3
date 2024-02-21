@@ -105,8 +105,6 @@ def export(x,y,z):
    # and so on for all branches of the function
 ```
 
-
-
 Show a patch (or link to a branch) that shows the instrumented code to
 gather coverage measurements.
 
@@ -134,8 +132,12 @@ see links to commits above
 
 What kinds of constructs does your tool support, and how accurate is
 its output?
-# TODO! [WRITE ABOUT WHAT KINDS OF CONSTRUCTS OUR TOOLS SUPPORT]. 
-If we've accurately implemented our lines that set the flags then our coverage tool is very accurate for the functions that include this feature. One problem that we encountered however was how some embedded for loops are difficult to rewrite into normal for loops with conditional statements which can potentially limit how well we can implement our flag conditions in our functions. 
+Our coverage tool works for most constructs but do not work with one line for loops and if statements that are embedded inside one another. An example of this construct that we don't support is:
+
+```python
+example = [j for j in range(10)]
+```
+Since we need to add our flags we need an extra line which is not possible for such constructs. If we've accurately implemented our lines that set the flags then our coverage tool is very accurate for the functions that include this feature. One problem that we encountered however was how some embedded for loops are difficult to rewrite into normal for loops with conditional statements which can potentially limit how well we can implement our flag conditions in our functions. 
 
 ### Evaluation
 
