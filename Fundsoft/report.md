@@ -88,9 +88,9 @@ The implemented versions of the refactoring can be see on the branch feature/65/
 
 [Rasmus - Refactoring P+](https://github.com/pdm-project/pdm/commit/f2e3836356304d89f490a3ca2f4f87d488bb29fe)
 
-[Sebastian - Refactoring P+]()
+[Sebastian - Refactoring P+](https://github.com/KTH-DD2480-Fundsoft/pdm-assignment-3/pull/85/commits/56451f8de425c32eafa9631b333f32fba149243f)
 
-[Dante - Refactoring P+]()
+[Dante - Refactoring P+](https://github.com/KTH-DD2480-Fundsoft/pdm-assignment-3/pull/88/commits/049c98302f2dfbc0b28dab91733f2d098aaa6942)
 
 ## Coverage
 
