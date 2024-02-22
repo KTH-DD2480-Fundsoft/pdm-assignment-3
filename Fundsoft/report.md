@@ -16,10 +16,10 @@ A package manager for python projects.
 
 PDM was the first project we picked.
 
-The project has a good CONTRIBUTING.md, where clear instructions are given
+The project has a good `CONTRIBUTING.md`, where clear instructions are given
 on how to organize ones contribution. The project recomends using it's own 
-product (PDM) to ensure formatting and linting and to document changes in 
-a specific `news` directory. There is nothing wrong with the CONTRIBUTING 
+product (`PDM`) to ensure formatting and linting and to document changes in 
+a specific `news` directory. There is nothing wrong with the `CONTRIBUTING.md`
 file, but there is a lack of documentation of certain modules and the code 
 in general. The instructions and documentation for running and using the 
 product are very good and the product works as intended. 
@@ -185,12 +185,15 @@ Since we need to add our flags we need an extra line which is not possible for s
 ### Evaluation
 
 1. How detailed is your coverage measurement?
+
 Our coverage measurement is very detailed for the functions that include our changes that allow us to set the flags of our functions. We are however limited to only checking the coverage for the functions that we've altered to work with our coverage tool. Thus we cannot generate coverage values for the entire library which severely limits our coverage scope. Our tool is able to take into account ternary operators and exceptions as we manually set the flag conditions. 
 
 2. What are the limitations of your own tool?
+
 We have to implement the checks for the different lines that set the flags (indexes of our list) manually which severely limits the amount of functions that we can check the branch coverage for. We also currently have to set the keys and values of the coverage dictionary manually as well. Thus we are very limited in fully implementing our tool for the entire library. A potential improvement to this would maybe be to integrate this with a library that measures complexity of the functions and automatically sets the different flag conditions and coverage dictionary.
 
 3. Are the results of your tool consistent with existing coverage tools?
+
 Our coverage tool is implemented for certain functions which makes it very difficult to compare with the existing coverage tool that was already integrated in the pdm repository. The existing coverage tool that we used checked the coverage of an entire module/python file which thus includes many classes and functions and doesn't allow us to compare our results directly. 
 
 ## Coverage improvement
@@ -219,14 +222,23 @@ a lot. A few branches are not tested though, these are:
        which almost covers this, but that exception gets thrown 
        in `filters.py`. And is not the exception in `do_update`
        as you might expect.
+   3. When a package is not present as a dependecy in its 
+       own group, both for dev-groups and non-dev-groups 
+   4. Related to #3; there is a list comprehension filtering
+       out dependencies whose group is not in the lockfile.
+       This branch will be taken when there is a dependency
+       whose group is not in the lockfile, but when this dep 
+       is not the one being updated. In other words, this test 
+       ensures that do_update does not add groups to the lockfile 
+       which are not there in the first place.
 
 #### _merge_bounds_and_excludes
 The test requirements do not include versions outside of bounds [lower, upper], 
 some normalization of operator specifiers, invalid operation specifiers, 
 invalid PySpecSet parameters, tests for is_allow_all(), or tests for the 
-__eq__ operator. 
+\_\_eq\_\_ operator. 
 
-### synchronize
+#### synchronize
 * Test 1: When removing a package from the working set it should not affect the lock file of the virtual environment.
 Thus this test checks the special branch in the remove distribution function where if the package is in the lock file it should
 only be removed from the working set dict not the lock file.
@@ -241,7 +253,7 @@ This specific branch is tested below where the asserts check the version number.
 * Test 4: When updating a group of dependencies the try except block should return a non-zero exit code along with keeping the packages
 in the lockfile. Packages that don't belong to that group and are not installed should not be updated.
 
-### clean_metadata
+#### clean_metadata
 There were no already existing requirements for the function
 `clean_metadata`. The tests that have been added directly tests
 four branches and by extension two other branches due to the
@@ -257,7 +269,7 @@ If there is an `author` or `author_email` key, another branch
 `if maintainer:` will be executed.
 6 branches are covered with these tests.
 
-### _build_pyspec_from_marker
+#### _build_pyspec_from_marker
 The tests test that 
 * _build_pyspec_from_marker of MultiMarker with unsupported marker type raises TypeError
 * _build_pyspec_from_marker of MarkerUnion with unsupported marker type raises TypeError
@@ -281,7 +293,6 @@ Report of new coverage: [link to the new coverage](https://github.com/KTH-DD2480
 
 | File | Coverage | Function |
 | ---------| ---------|------|
-|
 |src/pdm/cli/commands/update.py| 99% | do_update|
 |src/pdm/models/specifiers.py | 90%  | _merge_bounds_and_excludes|
 |src/pdm/installers/synchronizers.py | 85% | synchronize|
