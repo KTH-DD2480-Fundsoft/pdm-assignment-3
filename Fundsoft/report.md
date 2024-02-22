@@ -82,15 +82,15 @@ Carried out refactoring (optional, P+):
 
 The implemented versions of the refactoring can be see on the branch feature/65/refactor. Url shortcuts are given below:
 
-[Victor - Refactoring P+](https://github.com/pdm-project/pdm/commit/16b835b7d853d707b6126a9d4641e7470aae0334)
+[Victor - Refactoring P+](https://github.com/KTH-DD2480-Fundsoft/pdm-assignment-3/commit/16b835b7d853d707b6126a9d4641e7470aae0334)
 
-[Ludvig - Refactoring P+](https://github.com/pdm-project/pdm/commit/1a60ede32dd73e84ed31e6c7f991106b723f797b)
+[Ludvig - Refactoring P+](https://github.com/KTH-DD2480-Fundsoft/pdm-assignment-3/commit/1a60ede32dd73e84ed31e6c7f991106b723f797b)
 
-[Rasmus - Refactoring P+](https://github.com/pdm-project/pdm/commit/f2e3836356304d89f490a3ca2f4f87d488bb29fe)
+[Rasmus - Refactoring P+](https://github.com/KTH-DD2480-Fundsoft/pdm-assignment-3/commit/f2e3836356304d89f490a3ca2f4f87d488bb29fe)
 
-[Sebastian - Refactoring P+](https://github.com/KTH-DD2480-Fundsoft/pdm-assignment-3/pull/85/commits/56451f8de425c32eafa9631b333f32fba149243f)
+[Sebastian - Refactoring P+](https://github.com/KTH-DD2480-Fundsoft/pdm-assignment-3/commit/23467fdbedc585705ddddbdaf37c2edfb3309dd0)
 
-[Dante - Refactoring P+](https://github.com/KTH-DD2480-Fundsoft/pdm-assignment-3/pull/88/commits/049c98302f2dfbc0b28dab91733f2d098aaa6942)
+[Dante - Refactoring P+](https://github.com/KTH-DD2480-Fundsoft/pdm-assignment-3/commit/884bc10e93b5f09babf8fd49d5287547b594bf9a)
 
 ## Coverage
 
@@ -153,7 +153,7 @@ gather coverage measurements.
 
 These commits showcase how we implemented our coverage measurements
 
-[Coverage commit #1](https://github.com/pdm-project/pdm/commit/0a16bc1edcac1a59e7979b07368982c0dbdf1413)
+[Coverage commit #1](https://github.com/KTH-DD2480-Fundsoft/pdm-assignment-3/commit/0a16bc1edcac1a59e7979b07368982c0dbdf1413)
 
 [Coverage commit #2]( https://github.com/KTH-DD2480-Fundsoft/pdm-assignment-3/commit/75a4bafed534a2b85da5fee6cefef88a91a6ebe6)
 
