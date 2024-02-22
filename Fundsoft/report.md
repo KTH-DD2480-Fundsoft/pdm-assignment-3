@@ -1,14 +1,10 @@
 # Report for assignment 3
 
-This is a template for your report. You are free to modify it as needed.
-It is not required to use markdown for your report either, but the report
-has to be delivered in a standard, cross-platform format.
-
 ## Project
 
-Name: PDM
+**Name:** PDM
 
-URL: https://github.com/pdm-project/pdm
+**URL:** https://github.com/pdm-project/pdm
 
 A package manager for python projects.
 
@@ -24,11 +20,33 @@ file, but there is a lack of documentation of certain modules and the code
 in general. The instructions and documentation for running and using the 
 product are very good and the product works as intended. 
 
-## Complexity
+**How easily can you build the project? Briefly describe if everything worked as documented or not:**
+
+- **a) Did you have to install a lot of additional tools to build the software?**
+
+    No we only needed to install PDM, and it handled the rest for us.
+
+- **b) Were those tools well documented?**
+
+    PDM itself is well documented on the user side.
+
+- **c) Were other components installed automatically by the build script?**
+
+    PDM automatically installs all the necessary dependencies.
+
+- **d) Did the build conclude automatically without errors?**
+
+    Yes, this is very well handled by PDM.
+
+- **e) How well do examples and tests run on your system(s)?**
+
+    It runs excellently. With single scripts `pdm test` and `pdm coverage`, the tests and test coverage is executed with `pytest`.
+
+## Part 1: Complexity
 
 ### 1. What are your results for five complex functions?
-   * Did all methods (tools vs. manual count) get the same result?
-   * Are the results clear?
+   * **Did all methods (tools vs. manual count) get the same result?**
+   * **Are the results clear?**
 
 Interestingly enough, we got the same result from a manual calculation and an automatic calculation (using Lizard) for just one function, `synchronize@385-467@./src/pdm/installers/synchronizers.py`. In three other cases, our manual calculations came out to be one or two points greater than the automatic ones. For the last function, `do_update@91-200@src/pdm/cli/commands/update.py`, we got a result that was two less than the one calculated by Lizard.
 
@@ -66,40 +84,13 @@ We didn't find any reference to how Lizard does its CCN calculations. However, w
 #### 5. Is the documentation clear w.r.t. all the possible outcomes?
 The documentation is not very clear about all the possible outcomes. The comments in the code are sparse and don't contain much information at all. Furthermore, there aren't many comments describing what happens in the different branches. To fix this, the developers could add better docstrings that explain what each function does and what each parameter to each function does. This would make it easier to understand what happens at each branching point.
 
-## Refactoring
-
-Plan for refactoring complex code:
-
-Every group member has written their refactoring plan in a markdown file located in the Fundsoft/Refactoring-plans folder. 
-[Refactoring-plans](https://github.com/KTH-DD2480-Fundsoft/pdm-assignment-3/tree/report/Fundsoft/Refactoring-plans)
-
-Estimated impact of refactoring (lower CC, but other drawbacks?).
-
-When it comes to refactoring we found that many of the functions could be re-written. Not necessarily shortened where we get rid of unnecessary conditional statements but more that independent blocks of code could be moved outside of the function so that they formed separate functions. Since we didn't want to damage the logic of the functions by trying to optimize the logic of the code we focused on splitting complex functions into several smaller and less complex functions that could be called on by each other. Some positive benefits of this entail shorter functions making them easier to read and understand. Another benefit could be that independent functions can be isolated into their own function and thus be able to be called upon by other functions. Some negative drawbacks of this would be that splitting up a function makes it necessary to read several other functions instead of just one function. If one splits up the function too much this could become overwhelming. 
-
-
-Carried out refactoring (optional, P+):
-
-The implemented versions of the refactoring can be see on the branch feature/65/refactor. Url shortcuts are given below:
-
-[Victor - Refactoring P+](https://github.com/KTH-DD2480-Fundsoft/pdm-assignment-3/commit/16b835b7d853d707b6126a9d4641e7470aae0334)
-
-[Ludvig - Refactoring P+](https://github.com/KTH-DD2480-Fundsoft/pdm-assignment-3/commit/1a60ede32dd73e84ed31e6c7f991106b723f797b)
-
-[Rasmus - Refactoring P+](https://github.com/KTH-DD2480-Fundsoft/pdm-assignment-3/commit/f2e3836356304d89f490a3ca2f4f87d488bb29fe)
-
-[Sebastian - Refactoring P+](https://github.com/KTH-DD2480-Fundsoft/pdm-assignment-3/commit/23467fdbedc585705ddddbdaf37c2edfb3309dd0)
-
-[Dante - Refactoring P+](https://github.com/KTH-DD2480-Fundsoft/pdm-assignment-3/commit/884bc10e93b5f09babf8fd49d5287547b594bf9a)
-
-## Coverage
+## Part 2, Task 1: Coverage DIY
 
 ### Tools
 
-Document your experience in using a "new"/different coverage tool.
+***Document your experience in using a "new"/different coverage tool.**
 
-How well was the tool documented? Was it possible/easy/difficult to
-integrate it with your build environment?
+**How well was the tool documented? Was it possible/easy/difficult to integrate it with your build environment?**
 
 We looked at the open source project pdm which is a python package manager. The very nice thing with pdm was that it included its own coverage tool which made it the onboarding process very simple and easy. We simply had to run `pdm coverage` in our terminal to activate the coverage tool which then ran many tests. pdms GitHub repo also included some documentation on the current coverages of the different modules in the library which made it very easy to assess the coverage of the different functions and modules. This coverage.txt file also included which lines included missing branch coverage which made it very easy to "debug" where we needed to look in order to improve the branch coverage. As it was already built into the pdm repository it was very easy to integrate into our build environment.
 
@@ -165,16 +156,12 @@ These commits showcase how we implemented our coverage measurements
 
 [Coverage commit #6 (bugfix)]( https://github.com/KTH-DD2480-Fundsoft/pdm-assignment-3/commit/0010671d72d293490057724084cc531785f16ac8)
 
-
-
-
-The patch is probably too long to be copied here, so please add
-the git command that is used to obtain the patch instead:
+**The patch is probably too long to be copied here, so please add the git command that is used to obtain the patch instead:**
 
 see links to commits above
 
-What kinds of constructs does your tool support, and how accurate is
-its output?
+**What kinds of constructs does your tool support, and how accurate is its output?**
+
 Our coverage tool works for most constructs but do not work with one line for loops and if statements that are embedded inside one another. An example of this construct that we don't support is:
 
 ```python
@@ -184,16 +171,16 @@ Since we need to add our flags we need an extra line which is not possible for s
 
 ### Evaluation
 
-1. How detailed is your coverage measurement?
+1. **How detailed is your coverage measurement?**\
 Our coverage measurement is very detailed for the functions that include our changes that allow us to set the flags of our functions. We are however limited to only checking the coverage for the functions that we've altered to work with our coverage tool. Thus we cannot generate coverage values for the entire library which severely limits our coverage scope. Our tool is able to take into account ternary operators and exceptions as we manually set the flag conditions. 
 
-2. What are the limitations of your own tool?
+2. **What are the limitations of your own tool?**\
 We have to implement the checks for the different lines that set the flags (indexes of our list) manually which severely limits the amount of functions that we can check the branch coverage for. We also currently have to set the keys and values of the coverage dictionary manually as well. Thus we are very limited in fully implementing our tool for the entire library. A potential improvement to this would maybe be to integrate this with a library that measures complexity of the functions and automatically sets the different flag conditions and coverage dictionary.
 
-3. Are the results of your tool consistent with existing coverage tools?
+3. **Are the results of your tool consistent with existing coverage tools?**\
 Our coverage tool is implemented for certain functions which makes it very difficult to compare with the existing coverage tool that was already integrated in the pdm repository. The existing coverage tool that we used checked the coverage of an entire module/python file which thus includes many classes and functions and doesn't allow us to compare our results directly. 
 
-## Coverage improvement
+## Part 2, Task 2: Coverage improvement
 
 ### Requirements
 
@@ -247,10 +234,12 @@ There were no already existing requirements for the function
 four branches and by extension two other branches due to the
 logic of the function. The branches are more specifically when
 the input metadata contains an:
+
 1. `author` key.
 2. `author_email` key.
 3. `maintainer` key.
 4. `maintainer_email` key.
+
 If there is an `author` or `author_email` key, another branch
 `if author` will also be executed. Similarly, if there is an
 `maintainer` or `maintainer_email` key, another branch
@@ -266,7 +255,7 @@ The tests test that
 The tests enters branches of the functions _build_pyspec_from_marker and get_marker that 
 were not covered previously. 
 
-Report of old coverage: [link to the old coverage](https://github.com/KTH-DD2480-Fundsoft/pdm-assignment-3/blob/snapshot-complexity-coverage/coverage.txt)
+**Report of old coverage:** [link to the old coverage](https://github.com/KTH-DD2480-Fundsoft/pdm-assignment-3/blob/snapshot-complexity-coverage/coverage.txt)
 
 | File | Coverage | Function|
 | --- | ----------- | ---|
@@ -277,11 +266,10 @@ Report of old coverage: [link to the old coverage](https://github.com/KTH-DD2480
 |pdm/models/markers.py| 82% |_build_pyspec_from_marker
 
 
-Report of new coverage: [link to the new coverage](https://github.com/KTH-DD2480-Fundsoft/pdm-assignment-3/blob/b637fce8f1123b71cd14dd731667c18fb1d3e408/src/pdm/models/coverage.txt)
+**Report of new coverage:** [link to the new coverage](https://github.com/KTH-DD2480-Fundsoft/pdm-assignment-3/blob/b637fce8f1123b71cd14dd731667c18fb1d3e408/src/pdm/models/coverage.txt)
 
 | File | Coverage | Function |
 | ---------| ---------|------|
-|
 |src/pdm/cli/commands/update.py| 99% | do_update|
 |src/pdm/models/specifiers.py | 90%  | _merge_bounds_and_excludes|
 |src/pdm/installers/synchronizers.py | 85% | synchronize|
@@ -296,7 +284,34 @@ We added at least four test cases per team member. These can be seen in the comm
 4. [clean_metadata](https://github.com/KTH-DD2480-Fundsoft/pdm-assignment-3/commit/f1c823f481cc8fe0230c56b4dfddb24f87bb6dc3)
 5. [_build_pyspec_from_marker](https://github.com/KTH-DD2480-Fundsoft/pdm-assignment-3/commit/387b0b2044aa3107138327e03a1193177f7084a1)
 
-## Self-assessment: Way of working
+## Part 2, Task 3: Refactoring
+
+**Plan for refactoring complex code:**
+
+Every group member has written their refactoring plan in a markdown file located in the Fundsoft/Refactoring-plans folder. 
+[Refactoring-plans](https://github.com/KTH-DD2480-Fundsoft/pdm-assignment-3/tree/report/Fundsoft/Refactoring-plans)
+
+**Estimated impact of refactoring (lower CC, but other drawbacks?)**
+
+When it comes to refactoring we found that many of the functions could be re-written. Not necessarily shortened where we get rid of unnecessary conditional statements but more that independent blocks of code could be moved outside of the function so that they formed separate functions. Since we didn't want to damage the logic of the functions by trying to optimize the logic of the code we focused on splitting complex functions into several smaller and less complex functions that could be called on by each other. Some positive benefits of this entail shorter functions making them easier to read and understand. Another benefit could be that independent functions can be isolated into their own function and thus be able to be called upon by other functions. Some negative drawbacks of this would be that splitting up a function makes it necessary to read several other functions instead of just one function. If one splits up the function too much this could become overwhelming. 
+
+
+**Carried out refactoring (optional, P+):**
+
+The implemented versions of the refactoring can be see on the branch feature/65/refactor. Url shortcuts are given below:
+
+[Victor - Refactoring P+](https://github.com/KTH-DD2480-Fundsoft/pdm-assignment-3/commit/16b835b7d853d707b6126a9d4641e7470aae0334)
+
+[Ludvig - Refactoring P+](https://github.com/KTH-DD2480-Fundsoft/pdm-assignment-3/commit/1a60ede32dd73e84ed31e6c7f991106b723f797b)
+
+[Rasmus - Refactoring P+](https://github.com/KTH-DD2480-Fundsoft/pdm-assignment-3/commit/f2e3836356304d89f490a3ca2f4f87d488bb29fe)
+
+[Sebastian - Refactoring P+](https://github.com/KTH-DD2480-Fundsoft/pdm-assignment-3/commit/23467fdbedc585705ddddbdaf37c2edfb3309dd0)
+
+[Dante - Refactoring P+](https://github.com/KTH-DD2480-Fundsoft/pdm-assignment-3/commit/884bc10e93b5f09babf8fd49d5287547b594bf9a)
+
+
+## Part 2, Task 4: Self-assessment – Way of working
 
 **Current state according to the Essence standard:** 
 
@@ -308,7 +323,7 @@ The self-assessment was unanimous as all team members feel that we are improving
 
 **How have you improved so far?**
 
-Our group has improved a lot compared to the beginning of the course. We've become a cohesive group where everyone takes initiative to tackle problems and discuss differnet methods of solving them. We're very open in our communication and feedback which has only improved the more we've worked together and gotten to know each other. Practically we've become a lot better at using GitHub in a larger group project with handling branches, merges as well as simply dissecting the assigned problems into smaller atomic issues. Compared to the beginning we've greatly improved our workflow when it comes to making Pull Requests, commenting and approving PRs along with handling and merging branches correctly. 
+Our group has improved a lot compared to the beginning of the course. We've become a cohesive group where everyone takes initiative to tackle problems and discuss different methods of solving them. We're very open in our communication and feedback which has only improved the more we've worked together and gotten to know each other. Practically we've become a lot better at using GitHub in a larger group project with handling branches, merges as well as simply dissecting the assigned problems into smaller atomic issues. Compared to the beginning we've greatly improved our workflow when it comes to making Pull Requests, commenting and approving PRs along with handling and merging branches correctly. 
 
 **Where is potential for improvement?**
 
@@ -317,7 +332,6 @@ There are always ways to improve and one should always be open to how we can imp
 * We can become more articulate in the the beginning of each project with how we want to structure the project (how we'll use branches etc.). We were very good at doing this for the CI project (assignment 2) but in assignment 3 it was slightly unclear how we were going to use branches and later merge them all together. 
 * We can definetly aim to include our own deadlines where we try to complete an assignment/parts of assignments to certain dates in order to have some extra time to go over everything and double check things. We have tried to do this before with some success. It is however quite difficult to do as the assignments are very new where it is very difficult to judge how long different tasks will take. 
 * We can attempt to be even more articulate in our commit and PR messages.
-
 
 ## Overall experience
 
@@ -343,4 +357,3 @@ cases -- really complex functions.
 We're happy with our choice of project, although we realised a bit into the 
 assignment that some aspects of pdm where a bit unclear. As a result, we 
 spent a lot of time just getting to know the code base -- more than we'd like.
-
