@@ -146,4 +146,4 @@ def clean_metadata(metadata: Dict[str, Any]) -> None:
     handle_process_entry_points(metadata)
 ```
 
-By doing this, the function `clean_metadata` gets a CCN of 3!
+By doing this, the function `clean_metadata` gets a CCN of 4!
